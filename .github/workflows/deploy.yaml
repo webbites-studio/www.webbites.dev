@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["master"] # Change to your default branch
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -34,7 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: '.' # Upload root directory (or your build folder if using a generator)
+          path: './html/' # Upload html directory (or your build folder if using a generator)
 
       - name: Deploy to GitHub Pages
         id: deployment
