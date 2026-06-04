@@ -71,7 +71,7 @@ html[data-theme="light"] body {
     backdrop-filter: blur(18px);
     /* box-shadow: 0 40px 120px rgba(15, 23, 42, 0.18); */
     animation: glowFlicker 8s ease-in-out infinite;
-    transition: background 0.35s, border-color 0.35s;
+    transition: background 0.35s, border-color 0.35s, transform 0.3s;
 }
 
 .shadow-glow {
