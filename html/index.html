@@ -48,7 +48,7 @@
         style="background:var(--bg-nav);border-color:var(--border-card)">
         <div class="h-20 flex items-center justify-between px-4">
             <a href="#" class="text-lg md:text-xl font-semibold tracking-[0.25em] uppercase text-white">Studio</a>
-            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.35em] font-medium"
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.35em] font-medium stagger"
                 style="color:var(--text-soft)">
                 <a href="#visual-concepts" class="transition" style="color:inherit"
                     onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''">Vision</a>
@@ -78,7 +78,7 @@
         <div
             class="absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),_transparent_45%)] pointer-events-none">
         </div>
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center stagger">
             <span
                 class="hero-badge inline-flex items-center justify-center rounded-full bg-slate-800/80 px-4 py-2 text-xs uppercase tracking-[0.35em] text-sky-300 mb-6">Web
                 Design & Hosting</span>
@@ -100,7 +100,7 @@
             </div>
         </div>
 
-        <div class="max-w-6xl mx-auto px-6 mt-16 grid gap-4 sm:grid-cols-3 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 mt-16 grid gap-4 sm:grid-cols-3 relative z-10 stagger">
             <div class="draw-border hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02]">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Launch</p>
                 <h3 class="text-2xl font-semibold text-white">14 days</h3>
@@ -126,7 +126,7 @@
     <section id="visual-concepts" class="py-24 border-t"
         style="background:var(--bg-panel);border-color:var(--border-card)">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 stagger">
                 <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Visual Identity</p>
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Three distinct creative
                     directions</h2>
@@ -139,10 +139,10 @@
 
             <div class="stagger space-y-16">
                 <!-- Concept 1: Neural Architecture -->
-                <div class="grid gap-8 lg:grid-cols-2 items-center">
+                <div class="grid gap-8 lg:grid-cols-2 items-center stagger">
                     <div class="order-2 lg:order-1">
                         <div class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]"
-                            style="--draw-color:#a855f7">
+                            style="--draw-color:#a855f7; --stagger-index:0">
                             <span
                                 class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-300 mb-6 border border-purple-500/30">
                                 Concept 01
@@ -179,7 +179,7 @@
                 </div>
 
                 <!-- Concept 2: Kinetic Startup -->
-                <div class="grid gap-8 lg:grid-cols-2 items-center">
+                <div class="grid gap-8 lg:grid-cols-2 items-center stagger">
                     <div class="grid gap-4">
                         <!-- <img src="images/kinetic_startup1.png" alt="Kinetic Startup Concept 1"
                             class="w-full h-64 object-cover rounded-3xl border border-slate-800 shadow-glow transition duration-300 hover:scale-[1.02]" /> -->
@@ -214,7 +214,7 @@
                 </div>
 
                 <!-- Concept 3: Collaborative Future -->
-                <div class="grid gap-8 lg:grid-cols-2 items-center">
+                <div class="grid gap-8 lg:grid-cols-2 items-center stagger">
                     <div class="order-2 lg:order-1">
                         <div class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]"
                             style="--draw-color:#f97316">
@@ -254,7 +254,7 @@
 
     <section id="services" class="py-24" style="background:transparent">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 stagger">
                 <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">What we deliver</p>
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Everything you need to shine
                     online.</h2>
@@ -295,7 +295,7 @@
     <section id="examples" class="py-24 border-t border-b"
         style="background:var(--bg-card);border-color:var(--border-card)">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 stagger">
                 <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Portfolio</p>
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Recent website examples</h2>
                 <p class="mt-4 text-slate-400 max-w-2xl mx-auto">A few of the sites I built with polished layouts,
@@ -339,7 +339,7 @@
     <section id="process" class="py-24 border-t border-b"
         style="background:var(--bg-card);border-color:var(--border-card)">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 stagger">
                 <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">How it works</p>
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">A simple process for fast
                     delivery.</h2>
@@ -372,7 +372,7 @@
 
     <section id="pricing" class="py-24">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 stagger">
                 <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Transparent Pricing</p>
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Simple, honest pricing that
                     makes sense.</h2>
@@ -428,34 +428,35 @@
                 </div>
             </div>
 
-            <div class="text-center">
+            <div class="text-center stagger">
                 <p class="text-slate-400 text-sm mb-8">Additional options for enhanced support</p>
-                <div class="stagger grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-                    <div
-                        class="rounded-3xl border border-slate-800 bg-slate-900/90 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
-                        <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">On-Demand</p>
-                        <div class="text-5xl font-semibold text-white mb-4">$30</div>
-                        <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">Per single update</p>
-                        <p class="text-slate-400 leading-7">Perfect for occasional edits like text changes, image swaps,
-                            or one-off announcements when you don't need monthly support.</p>
-                    </div>
-                    <div
-                        class="relative rounded-3xl border-2 border-slate-800 bg-slate-950/95 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
-                        <span
-                            class="absolute inset-x-24 -top-4 mx-auto rounded-full bg-slate-950 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-300">Popular</span>
-                        <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Continuous Care</p>
-                        <div class="text-5xl font-semibold text-white mb-4">$40</div>
-                        <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">Per month</p>
-                        <p class="text-slate-400 leading-7">Ongoing updates, security monitoring, regular backups, and
-                            small enhancements that keep your site polished and fresh.</p>
-                    </div>
+            </div>
+            <div class="stagger grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+                <div
+                    class="rounded-3xl border border-slate-800 bg-slate-900/90 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
+                    <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">On-Demand</p>
+                    <div class="text-5xl font-semibold text-white mb-4">$30</div>
+                    <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">Per single update</p>
+                    <p class="text-slate-400 leading-7">Perfect for occasional edits like text changes, image swaps,
+                        or one-off announcements when you don't need monthly support.</p>
+                </div>
+                <div
+                    class="relative rounded-3xl border-2 border-slate-800 bg-slate-950/95 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
+                    <span
+                        class="absolute inset-x-24 -top-4 mx-auto rounded-full bg-slate-950 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-300">Popular</span>
+                    <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Continuous Care</p>
+                    <div class="text-5xl font-semibold text-white mb-4">$40</div>
+                    <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">Per month</p>
+                    <p class="text-slate-400 leading-7">Ongoing updates, security monitoring, regular backups, and
+                        small enhancements that keep your site polished and fresh.</p>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
     <section id="testimonials" class="py-24 border-t" style="background:var(--bg-card);border-color:var(--border-card)">
-        <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="max-w-4xl mx-auto px-6 text-center stagger">
             <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">What clients say</p>
             <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-12">A smooth process with
                 high-impact results.</h2>
@@ -474,13 +475,13 @@
 
     <section id="contact" class="py-24">
         <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Let’s begin</p>
+            <div class="text-center mb-12 stagger">
+                <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Let's begin</p>
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Start your project today.</h2>
                 <p class="mt-4 text-slate-400">Based in the USA. Ready to build a memorable website with fast hosting
                     and custom design.</p>
             </div>
-            <form class="space-y-6 rounded-3xl border border-slate-800 bg-slate-950/90 p-8 shadow-glow">
+            <form class="space-y-6 rounded-3xl border border-slate-800 bg-slate-950/90 p-8 shadow-glow stagger">
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label class="block text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">Full Name</label>
@@ -516,7 +517,7 @@
 
     <footer class="border-t py-12" style="background:var(--bg-nav);border-color:var(--border-card)">
         <div
-            class="max-w-6xl mx-auto px-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-400">
+            class="max-w-6xl mx-auto px-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-400 stagger">
             <div>© 2026 Studio. All Rights Reserved.</div>
             <div class="flex flex-wrap justify-center gap-6">
                 <a href="#services" class="transition hover:text-white">Services</a>
