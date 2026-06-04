@@ -148,6 +148,19 @@
             color: var(--text-base) !important;
         }
 
+        /* Keep white text on gradient/coloured buttons */
+        html[data-theme="light"] [class*="from-indigo"][class*="text-white"],
+        html[data-theme="light"] [class*="bg-gradient"][class*="text-white"] {
+            color: #fff !important;
+        }
+
+        /* Ghost / outline buttons in light mode */
+        html[data-theme="light"] [class*="border-slate-7"][class*="bg-slate-9"] {
+            background: transparent !important;
+            border-color: #94a3b8 !important;
+            color: var(--text-base) !important;
+        }
+
         html[data-theme="light"] input,
         html[data-theme="light"] textarea {
             background: #f8fafc !important;
