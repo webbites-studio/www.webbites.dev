@@ -65,17 +65,28 @@ html[data-theme="light"] body {
     }
 }
 
-.hero-panel {
-    background: var(--bg-panel);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(18px);
-    /* box-shadow: 0 40px 120px rgba(15, 23, 42, 0.18); */
+/* ── Interactive panel: shared hover, glow & border-draw effects ── */
+[data-interactive-panel] {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid var(--border-card);
+    transition: transform 0.3s ease, background-color 0.35s, border-color 0.35s, box-shadow 0.35s;
     animation: glowFlicker 8s ease-in-out infinite;
-    transition: background 0.35s, border-color 0.35s, transform 0.3s;
+    will-change: transform;
 }
 
-.shadow-glow {
-    animation: glowFlicker 8s ease-in-out infinite;
+[data-interactive-panel]:hover {
+    transform: scale(1.02) !important;
+}
+
+/* Compose transforms when panel is also a stagger-item */
+.stagger.in-view > [data-interactive-panel].stagger-item:hover {
+    transform: translateY(0) scale(1.02) !important;
+}
+
+.hero-panel {
+    background: var(--bg-panel);
+    backdrop-filter: blur(18px);
 }
 
 /* ── Light-theme card / form overrides ── */
@@ -87,7 +98,8 @@ html[data-theme="light"] [class*="bg-slate-950"] {
 }
 
 html[data-theme="light"] [class*="shadow-glow"],
-html[data-theme="light"] .hero-panel {
+html[data-theme="light"] .hero-panel,
+html[data-theme="light"] [data-interactive-panel] {
     box-shadow: 0 8px 32px rgba(100, 116, 139, 0.12) !important;
     animation: none !important;
 }
@@ -169,24 +181,15 @@ html[data-theme="light"] .hero-badge {
     color: #0369a1 !important;
 }
 
-/* ── Visual Concepts section ── */
-#visual-concepts .shadow-glow {
-    animation: glowFlicker 8s ease-in-out infinite;
-}
-
 /* ── Visual Concepts section light-mode overrides ── */
 html[data-theme="light"] #visual-concepts {
     background: rgba(248, 250, 252, 0.95) !important;
 }
 
-html[data-theme="light"] #visual-concepts .rounded-3xl.border.border-slate-800 {
+html[data-theme="light"] #visual-concepts [data-interactive-panel] {
     background: rgba(255, 255, 255, 0.95) !important;
     border-color: rgba(203, 213, 225, 1) !important;
     box-shadow: 0 8px 24px rgba(100, 116, 139, 0.12) !important;
-}
-
-html[data-theme="light"] #visual-concepts .shadow-glow {
-    animation: none !important;
 }
 
 html[data-theme="light"] #visual-concepts img {
@@ -236,18 +239,13 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
     color: #0369a1 !important;
 }
 
-/* ── Animated draw-border on hover ──
+/* ── Animated border-draw on hover ──
    Two pseudo-elements trace the rectangle starting at the top-left
    corner and meet at the bottom-right corner, forming the border.
    ::before draws TOP, then RIGHT (TL → TR → BR).
    ::after  draws LEFT, then BOTTOM (TL → BL → BR). */
-.draw-border {
-    position: relative;
-    isolation: isolate;
-}
-
-.draw-border::before,
-.draw-border::after {
+[data-interactive-panel]::before,
+[data-interactive-panel]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -262,7 +260,7 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
 }
 
 /* Reverse animation when un-hovering */
-.draw-border::before {
+[data-interactive-panel]::before {
     transition:
         height 0.15s ease-in,
         width 0.15s ease-in 0.15s,
@@ -270,7 +268,7 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
         border-right-color 0s 0.3s;
 }
 
-.draw-border::after {
+[data-interactive-panel]::after {
     transition:
         width 0.15s ease-in,
         height 0.15s ease-in 0.15s,
@@ -278,7 +276,7 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
         border-bottom-color 0s 0.3s;
 }
 
-.draw-border:hover::before {
+[data-interactive-panel]:hover::before {
     width: 100%;
     height: 100%;
     border-top-color: var(--draw-color, rgba(14, 165, 233, 0.5));
@@ -290,7 +288,7 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
         border-right-color 0s 0.15s;
 }
 
-.draw-border:hover::after {
+[data-interactive-panel]:hover::after {
     width: 100%;
     height: 100%;
     border-left-color: var(--draw-color, rgba(14, 165, 233, 0.5));
@@ -323,5 +321,20 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    [data-interactive-panel] {
+        animation: none;
+        transition: none;
+    }
+
+    [data-interactive-panel]:hover,
+    .stagger.in-view > [data-interactive-panel].stagger-item:hover {
+        transform: none;
+    }
+
+    [data-interactive-panel]::before,
+    [data-interactive-panel]::after {
+        display: none;
     }
 }
