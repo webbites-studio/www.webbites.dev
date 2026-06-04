@@ -209,6 +209,11 @@
             color: #0369a1 !important;
         }
 
+        /* ── Visual Concepts section ── */
+        #visual-concepts .shadow-glow {
+            animation: glowFlicker 8s ease-in-out infinite;
+        }
+
         /* ── Visual Concepts section light-mode overrides ── */
         html[data-theme="light"] #visual-concepts {
             background: rgba(248, 250, 252, 0.95) !important;
@@ -218,6 +223,10 @@
             background: rgba(255, 255, 255, 0.95) !important;
             border-color: rgba(203, 213, 225, 1) !important;
             box-shadow: 0 8px 24px rgba(100, 116, 139, 0.12) !important;
+        }
+
+        html[data-theme="light"] #visual-concepts .shadow-glow {
+            animation: none !important;
         }
 
         html[data-theme="light"] #visual-concepts img {
