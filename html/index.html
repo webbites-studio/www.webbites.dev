@@ -275,6 +275,97 @@
         html[data-theme="light"] #visual-concepts strong.text-sky-300 {
             color: #0369a1 !important;
         }
+
+        /* ── Animated draw-border on hover ──
+           Two pseudo-elements trace the rectangle starting at the top-left
+           corner and meet at the bottom-right corner, forming the border.
+           ::before draws TOP, then RIGHT (TL → TR → BR).
+           ::after  draws LEFT, then BOTTOM (TL → BL → BR). */
+        .draw-border {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+        .draw-border::before,
+        .draw-border::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 0;
+            height: 0;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Reverse animation when un-hovering */
+        .draw-border::before {
+            transition:
+                height 0.15s ease-in,
+                width 0.15s ease-in 0.15s,
+                border-top-color 0s 0.3s,
+                border-right-color 0s 0.3s;
+        }
+
+        .draw-border::after {
+            transition:
+                width 0.15s ease-in,
+                height 0.15s ease-in 0.15s,
+                border-left-color 0s 0.3s,
+                border-bottom-color 0s 0.3s;
+        }
+
+        .draw-border:hover::before {
+            width: 100%;
+            height: 100%;
+            border-top-color: var(--draw-color, #0ea5e9);
+            border-right-color: var(--draw-color, #0ea5e9);
+            transition:
+                width 0.15s ease-out,
+                height 0.15s ease-out 0.15s,
+                border-top-color 0s 0s,
+                border-right-color 0s 0.15s;
+        }
+
+        .draw-border:hover::after {
+            width: 100%;
+            height: 100%;
+            border-left-color: var(--draw-color, #0ea5e9);
+            border-bottom-color: var(--draw-color, #0ea5e9);
+            transition:
+                height 0.15s ease-out,
+                width 0.15s ease-out 0.15s,
+                border-left-color 0s 0s,
+                border-bottom-color 0s 0.15s;
+        }
+
+        /* ── Staggered reveal-on-scroll ── */
+        .stagger>.stagger-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition:
+                opacity 0.7s cubic-bezier(.22, 1, .36, 1),
+                transform 0.7s cubic-bezier(.22, 1, .36, 1);
+            transition-delay: calc(var(--stagger-index, 0) * 110ms);
+            will-change: opacity, transform;
+        }
+
+        .stagger.in-view>.stagger-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .stagger>.stagger-item {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
 
@@ -330,28 +421,26 @@
                     class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-sky-500 px-8 py-4 text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-glow transition hover:brightness-110">Explore
                     Services</a>
                 <a href="#contact"
-                    class="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 px-8 py-4 text-xs font-semibold uppercase tracking-[0.35em] text-slate-200 transition hover:border-sky-400 hover:text-white">Inquire
+                    class="draw-border inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 px-8 py-4 text-xs font-semibold uppercase tracking-[0.35em] text-slate-200 transition hover:text-white"
+                    style="--draw-color:#38bdf8">Inquire
                     Now</a>
             </div>
         </div>
 
-        <div class="max-w-6xl mx-auto px-6 mt-16 grid gap-4 sm:grid-cols-3 relative z-10">
-            <div
-                class="hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+        <div class="stagger max-w-6xl mx-auto px-6 mt-16 grid gap-4 sm:grid-cols-3 relative z-10">
+            <div class="draw-border hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02]">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Launch</p>
                 <h3 class="text-2xl font-semibold text-white">14 days</h3>
                 <p class="mt-3 text-slate-400 text-sm leading-6">Quick launch schedule with polished delivery and fast
                     iteration.</p>
             </div>
-            <div
-                class="hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+            <div class="draw-border hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02]">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Flat price</p>
                 <h3 class="text-2xl font-semibold text-white">$500</h3>
                 <p class="mt-3 text-slate-400 text-sm leading-6">One price covers your website build, customization, and
                     responsive launch.</p>
             </div>
-            <div
-                class="hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+            <div class="draw-border hero-panel p-6 text-left rounded-3xl transition duration-300 hover:scale-[1.02]">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Hosting</p>
                 <h3 class="text-2xl font-semibold text-white">$15 / month</h3>
                 <p class="mt-3 text-slate-400 text-sm leading-6">Secure, reliable hosting plus routine support for a
@@ -375,12 +464,12 @@
                 </p>
             </div>
 
-            <div class="space-y-16">
+            <div class="stagger space-y-16">
                 <!-- Concept 1: Neural Architecture -->
                 <div class="grid gap-8 lg:grid-cols-2 items-center">
                     <div class="order-2 lg:order-1">
-                        <div
-                            class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02] hover:border-purple-500">
+                        <div class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]"
+                            style="--draw-color:#a855f7">
                             <span
                                 class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-300 mb-6 border border-purple-500/30">
                                 Concept 01
@@ -426,7 +515,7 @@
                     </div>
                     <div>
                         <div
-                            class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+                            class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]">
                             <span
                                 class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-500/20 to-cyan-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-sky-300 mb-6 border border-sky-500/30">
                                 Concept 02
@@ -454,8 +543,8 @@
                 <!-- Concept 3: Collaborative Future -->
                 <div class="grid gap-8 lg:grid-cols-2 items-center">
                     <div class="order-2 lg:order-1">
-                        <div
-                            class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02] hover:border-orange-500">
+                        <div class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]"
+                            style="--draw-color:#f97316">
                             <span
                                 class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-teal-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-orange-300 mb-6 border border-orange-500/30">
                                 Concept 03
@@ -498,9 +587,9 @@
                     online.</h2>
             </div>
 
-            <div class="grid gap-8 lg:grid-cols-3">
+            <div class="stagger grid gap-8 lg:grid-cols-3">
                 <div
-                    class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+                    class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Your Dream Website</p>
                     <h3 class="text-2xl font-semibold text-white mb-4">Beautiful, custom designs that wow your customers
                     </h3>
@@ -509,7 +598,7 @@
                         attention, build trust, and convert visitors into loyal customers.</p>
                 </div>
                 <div
-                    class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+                    class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Worry-Free Updates</p>
                     <h3 class="text-2xl font-semibold text-white mb-4">Change anything, anytime without breaking a sweat
                     </h3>
@@ -518,7 +607,7 @@
                         your message whenever inspiration strikes—confidently and effortlessly.</p>
                 </div>
                 <div
-                    class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02] hover:border-sky-500">
+                    class="draw-border rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-glow transition duration-300 hover:scale-[1.02]">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Rock-Solid Reliability</p>
                     <h3 class="text-2xl font-semibold text-white mb-4">Your site, always live, always fast, always
                         secure</h3>
@@ -539,7 +628,7 @@
                 <p class="mt-4 text-slate-400 max-w-2xl mx-auto">A few of the sites I built with polished layouts,
                     strong branding, and responsive UX.</p>
             </div>
-            <div class="grid gap-8 md:grid-cols-3">
+            <div class="stagger grid gap-8 md:grid-cols-3">
                 <div
                     class="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-glow transition duration-300 hover:scale-[1.02]">
                     <img src="images/portfolio1.jpg" alt="Website Example 1" class="h-72 w-full object-cover" />
@@ -582,7 +671,7 @@
                 <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">A simple process for fast
                     delivery.</h2>
             </div>
-            <div class="grid gap-8 md:grid-cols-3">
+            <div class="stagger grid gap-8 md:grid-cols-3">
                 <div
                     class="rounded-3xl border border-slate-800 bg-slate-900/90 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
                     <div class="text-4xl font-semibold text-sky-300 mb-4">01</div>
@@ -618,7 +707,7 @@
                     pricing designed for small businesses.</p>
             </div>
 
-            <div class="grid gap-8 lg:grid-cols-3 mb-16">
+            <div class="stagger grid gap-8 lg:grid-cols-3 mb-16">
                 <div
                     class="rounded-3xl border border-slate-800 bg-slate-900/90 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Website Build</p>
@@ -668,7 +757,7 @@
 
             <div class="text-center">
                 <p class="text-slate-400 text-sm mb-8">Additional options for enhanced support</p>
-                <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+                <div class="stagger grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
                     <div
                         class="rounded-3xl border border-slate-800 bg-slate-900/90 p-8 text-center shadow-glow transition duration-300 hover:scale-[1.02]">
                         <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">On-Demand</p>
@@ -802,6 +891,36 @@
                     });
                 }
             })();
+
+        // ── Staggered reveal on scroll ──
+        (function () {
+            var groups = document.querySelectorAll('.stagger');
+            if (!groups.length) return;
+
+            // Assign per-child stagger index for transition-delay calc().
+            groups.forEach(function (group) {
+                Array.prototype.forEach.call(group.children, function (child, i) {
+                    child.classList.add('stagger-item');
+                    child.style.setProperty('--stagger-index', i);
+                });
+            });
+
+            if (!('IntersectionObserver' in window)) {
+                groups.forEach(function (g) { g.classList.add('in-view'); });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+            groups.forEach(function (g) { observer.observe(g); });
+        })();
     </script>
 </body>
 
