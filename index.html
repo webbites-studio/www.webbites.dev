@@ -202,6 +202,12 @@
         #theme-toggle button:hover:not(.active) {
             color: var(--text-base);
         }
+
+        /* Hero badge light-mode fix */
+        html[data-theme="light"] .hero-badge {
+            background: rgba(99, 102, 241, 0.10) !important;
+            color: #0369a1 !important;
+        }
     </style>
 </head>
 
@@ -241,7 +247,7 @@
         </div>
         <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
             <span
-                class="inline-flex items-center justify-center rounded-full bg-slate-800/80 px-4 py-2 text-xs uppercase tracking-[0.35em] text-sky-300 mb-6">Web
+                class="hero-badge inline-flex items-center justify-center rounded-full bg-slate-800/80 px-4 py-2 text-xs uppercase tracking-[0.35em] text-sky-300 mb-6">Web
                 Design & Hosting</span>
             <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-white leading-tight mb-6">
                 Premium websites that feel modern, built in <span class="text-sky-300">two weeks</span>.
