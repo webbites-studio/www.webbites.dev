@@ -76,12 +76,12 @@ html[data-theme="light"] body {
 }
 
 [data-interactive-panel]:hover {
-    transform: scale(1.02) !important;
+    transform: scale(1.02);
 }
 
 /* Compose transforms when panel is also a stagger-item */
-.stagger.in-view > [data-interactive-panel].stagger-item:hover {
-    transform: translateY(0) scale(1.02) !important;
+.stagger.in-view>[data-interactive-panel].stagger-item:hover {
+    transform: translateY(0) scale(1.02);
 }
 
 .hero-panel {
@@ -329,7 +329,7 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
     }
 
     [data-interactive-panel]:hover,
-    .stagger.in-view > [data-interactive-panel].stagger-item:hover {
+    .stagger.in-view>[data-interactive-panel].stagger-item:hover {
         transform: none;
     }
 
