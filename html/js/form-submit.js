@@ -41,7 +41,11 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     const feedback = document.getElementById('formFeedback');
 
     if (result.status === "sent") {
+        let currentRate = document.querySelector("select#package").value;
         form.reset();
+        document.querySelector("select#package").value = currentRate; // reset to current rate after form reset
+
+
         if (window.turnstile) window.turnstile.reset();
         showFormFeedback(feedback, 'form-feedback--success', "Thank you! Your message has been sent. We'll be in touch soon.");
     } else {
