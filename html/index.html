@@ -92,33 +92,45 @@
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <button data-rate-regular class="button-rate-active">Popular</button>
-                <button data-rate-333 class="button-rate-inactive">Cheaper</button>
+                <button data-rate="regular" class="button-rate-active">Best</button>
+                <button data-rate="333" class="button-rate-inactive">Cheaper</button>
             </div>
         </div>
 
         <div class="max-w-6xl mx-auto px-6 mt-16 grid gap-4 sm:grid-cols-3 relative z-10 stagger">
-            <div data-interactive-panel class="hero-panel p-6 text-left rounded-3xl">
-                <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Launch</p>
-                <h3 class="text-2xl font-semibold text-white">14 days</h3>
-                <p class="mt-3 text-slate-400 text-sm leading-6">Quick launch schedule with polished delivery and fast
-                    iteration.</p>
-            </div>
-            <div data-interactive-panel data-rate-regular class="hero-panel p-6 text-left rounded-3xl">
+            <div data-interactive-panel data-rate="regular" class="grid-cell-1-1 hero-panel p-6 text-left rounded-3xl">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Flat price</p>
                 <h3 class="text-2xl font-semibold text-white">$888</h3>
                 <p class="mt-3 text-slate-400 text-sm leading-6">One price covers your website build, customization, and
                     launch to the web.</p>
             </div>
-            <div data-interactive-panel data-rate-333 class="hero-panel p-6 text-left rounded-3xl">
+            <div data-interactive-panel data-rate="333" class="grid-cell-1-1 hero-panel p-6 text-left rounded-3xl">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Super price</p>
                 <h3 class="text-2xl font-semibold text-white">$333</h3>
                 <p class="mt-3 text-slate-400 text-sm leading-6">One price covers your website build, customization, and
                     launch to the web.</p>
             </div>
-            <div data-interactive-panel class="hero-panel p-6 text-left rounded-3xl">
+            <div data-interactive-panel data-rate="regular" class="grid-cell-2-1 hero-panel p-6 text-left rounded-3xl">
+                <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Support</p>
+                <h3 class="text-2xl font-semibold text-white">2 hours FREE</h3>
+                <p class="mt-3 text-slate-400 text-sm leading-6">Get personalized assistance and guidance for your
+                    website needs.</p>
+            </div>
+            <div data-interactive-panel data-rate="333" class="grid-cell-2-1 hero-panel p-6 text-left rounded-3xl">
+                <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Support</p>
+                <h3 class="text-2xl font-semibold text-white">30 mins FREE</h3>
+                <p class="mt-3 text-slate-400 text-sm leading-6">Get personalized assistance and guidance for your
+                    website needs.</p>
+            </div>
+            <div data-interactive-panel data-rate="regular" class="grid-cell-3-1 hero-panel p-6 text-left rounded-3xl">
                 <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Hosting</p>
-                <h3 class="text-2xl font-semibold text-white">$15 / month</h3>
+                <h3 class="text-2xl font-semibold text-white">3 months FREE</h3>
+                <p class="mt-3 text-slate-400 text-sm leading-6">Secure, reliable hosting plus routine support for a
+                    stable online presence.</p>
+            </div>
+            <div data-interactive-panel data-rate="333" class="grid-cell-3-1 hero-panel p-6 text-left rounded-3xl">
+                <p class="text-sm uppercase tracking-[0.35em] text-sky-300 mb-3">Hosting</p>
+                <h3 class="text-2xl font-semibold text-white">3 weeks FREE</h3>
                 <p class="mt-3 text-slate-400 text-sm leading-6">Secure, reliable hosting plus routine support for a
                     stable online presence.</p>
             </div>
@@ -374,12 +386,13 @@
             </div>
 
             <div class="flex flex-col sm:flex-row justify-center items-center mb-16 gap-4 stagger">
-                <button data-rate-regular class="button-rate-active">Popular</button>
-                <button data-rate-333 class="button-rate-inactive">Cheaper</button>
+                <button data-rate="regular" class="button-rate-active">Best</button>
+                <button data-rate="333" class="button-rate-inactive">Cheaper</button>
             </div>
 
             <div class="stagger grid gap-8 lg:grid-cols-3 mb-16">
-                <div data-interactive-panel data-rate-regular class="rounded-3xl bg-slate-900/90 p-8 text-center">
+                <div data-interactive-panel data-rate="regular"
+                    class="grid-cell-1-1 rounded-3xl bg-slate-900/90 p-8 text-center">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Website Build</p>
                     <div class="text-5xl font-semibold text-white mb-4">$888</div>
                     <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">One-time flat fee</p>
@@ -394,7 +407,8 @@
                         <li>✓ Custom design / templates - your choice</li>
                     </ul>
                 </div>
-                <div data-interactive-panel data-rate-333 class="rounded-3xl bg-slate-900/90 p-8 text-center">
+                <div data-interactive-panel data-rate="333"
+                    class="grid-cell-1-1 rounded-3xl bg-slate-900/90 p-8 text-center">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Website Build</p>
                     <div class="text-5xl font-semibold text-white mb-4">$333</div>
                     <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">One-time flat fee</p>
@@ -408,7 +422,8 @@
                         <li>✓ Custom design / templates - your choice</li>
                     </ul>
                 </div>
-                <div data-interactive-panel data-rate-regular class="rounded-3xl bg-slate-900/90 p-8 text-center">
+                <div data-interactive-panel data-rate="regular"
+                    class="grid-cell-2-1 rounded-3xl bg-slate-900/90 p-8 text-center">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Live Support</p>
                     <div class="text-4xl font-semibold text-white mb-4">2 hrs FREE</div>
                     <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">Then $50 per hour</p>
@@ -422,7 +437,8 @@
                         <li>✓ Pictures even from your imagination</li>
                     </ul>
                 </div>
-                <div data-interactive-panel data-rate-333 class="rounded-3xl bg-slate-900/90 p-8 text-center">
+                <div data-interactive-panel data-rate="333"
+                    class="grid-cell-2-1 rounded-3xl bg-slate-900/90 p-8 text-center">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Live Support</p>
                     <div class="text-4xl font-semibold text-white mb-4">30 mins FREE</div>
                     <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">Then $50 per hour</p>
@@ -436,9 +452,24 @@
                         <li>✓ Pictures even from your imagination</li>
                     </ul>
                 </div>
-                <div data-interactive-panel class="rounded-3xl bg-slate-900/90 p-8 text-center">
+                <div data-interactive-panel data-rate="regular"
+                    class="grid-cell-3-1 rounded-3xl bg-slate-900/90 p-8 text-center">
                     <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Always Online</p>
                     <div class="text-4xl font-semibold text-white mb-4">3 months FREE</div>
+                    <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">then $15 per month</p>
+                    <p class="text-slate-400 leading-7 mb-4">Your site runs effortlessly around the clock—zero hassle,
+                        zero downtime. Just peace of mind and 24/7 reliability.</p>
+                    <ul class="text-left text-slate-400 text-sm space-y-2">
+                        <li>✓ Daily backups</li>
+                        <li>✓ SSL security included</li>
+                        <li>✓ Lightning-fast speeds</li>
+                        <li>✓ Reachability from anywhere</li>
+                    </ul>
+                </div>
+                <div data-interactive-panel data-rate="333"
+                    class="grid-cell-3-1 rounded-3xl bg-slate-900/90 p-8 text-center">
+                    <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-4">Always Online</p>
+                    <div class="text-4xl font-semibold text-white mb-4">3 weeks FREE</div>
                     <p class="text-xs uppercase tracking-[0.35em] text-slate-500 mb-5">then $15 per month</p>
                     <p class="text-slate-400 leading-7 mb-4">Your site runs effortlessly around the clock—zero hassle,
                         zero downtime. Just peace of mind and 24/7 reliability.</p>
@@ -573,6 +604,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/form-submit.js"></script>
+    <script src="js/rate-switch.js"></script>
 </body>
 
 </html>
