@@ -133,6 +133,66 @@ html[data-theme="light"] [class*="border-slate-7"][class*="bg-slate-9"] {
     color: var(--text-base) !important;
 }
 
+/* ── Rate toggle buttons ── */
+.button-rate-active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: #fff;
+    background: linear-gradient(to right, #6366f1, #0ea5e9);
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.55), 0 0 36px rgba(14, 165, 233, 0.3);
+    transition: filter 0.3s ease;
+}
+
+.button-rate-active:hover {
+    filter: brightness(1.1);
+}
+
+.button-rate-inactive {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+    background: rgba(15, 23, 42, 0.9);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.button-rate-inactive:hover {
+    color: #fff;
+    border-color: #64748b;
+}
+
+/* Light-mode overrides for rate buttons */
+html[data-theme="light"] .button-rate-active {
+    color: #fff !important;
+    background: linear-gradient(to right, #6366f1, #0ea5e9) !important;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4) !important;
+}
+
+html[data-theme="light"] .button-rate-inactive {
+    color: #475569 !important;
+    border-color: #94a3b8 !important;
+    background: transparent !important;
+}
+
+html[data-theme="light"] .button-rate-inactive:hover {
+    color: #1e293b !important;
+    border-color: #475569 !important;
+}
+
 html[data-theme="light"] input,
 html[data-theme="light"] textarea {
     background: #f8fafc !important;
