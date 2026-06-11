@@ -15,9 +15,11 @@
         // Transition out non-matching panels, transition in matching panels
         document.querySelectorAll('[data-rate]:not(button)').forEach(function (el) {
             var isActive = el.dataset.rate === rate;
-            el.classList.toggle('rate-panel-hidden', !isActive);
             el.classList.toggle('rate-panel-visible', isActive);
+            el.classList.toggle('rate-panel-hidden', !isActive);
         });
+
+        document.querySelector("select#package").value = rate;
 
         sessionStorage.setItem(ACTIVE_RATE_KEY, rate);
     }
@@ -47,6 +49,8 @@
             btn.classList.toggle('button-rate-active', isActive);
             btn.classList.toggle('button-rate-inactive', !isActive);
         });
+
+        document.querySelector("select#package").value = currentRate;
 
         // Attach click handlers
         document.querySelectorAll('button[data-rate]').forEach(function (btn) {
