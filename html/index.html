@@ -38,10 +38,7 @@
         }
     </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/turnstile-captcha.js"></script>
     <link rel="stylesheet" href="css/styles.css">
-
-
 </head>
 
 <body class="bg-slate-950 text-slate-100 font-sans antialiased">
@@ -470,30 +467,39 @@
                 <p class="mt-4 text-slate-400">Based in the USA. Ready to build a memorable website with fast hosting
                     and custom design.</p>
             </div>
-            <form data-interactive-panel class="space-y-6 rounded-3xl bg-slate-950/90 p-8 stagger">
+            <form id="contactForm" data-interactive-panel class="space-y-6 rounded-3xl bg-slate-950/90 p-8 stagger">
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label class="block text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">Full Name</label>
-                        <input type="text" required
+                        <input type="text" id="name" required
                             class="w-full rounded-2xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-sky-400" />
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">Email
-                            Address</label>
-                        <input type="email" required
+                        <label class="block text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">Email /
+                            Phone</label>
+                        <input type="text" id="contact" required
                             class="w-full rounded-2xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-sky-400" />
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">Project Type /
                         Niche</label>
-                    <input type="text" placeholder="e.g., E-commerce, Consultant, Local Service"
-                        class="w-full rounded-2xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-sky-400" />
+                    <select id="projectType" placeholder="e.g., E-commerce, Consultant, Local Service"
+                        class="w-full rounded-2xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-sky-400">
+                        <option value="">-- Choose a category --</option>
+                        <option value="businessCard">Digital Business Card</option>
+                        <option value="portfolio">Professional Portfolio</option>
+                        <option value="personalBrand">Personal Brand & Resume</option>
+                        <option value="landingPage">Campaign Landing Page</option>
+                        <option value="eventSite">Event-Based Site</option>
+                        <option value="restaurant">Restaurant Menu Site</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">Message &
                         Details</label>
-                    <textarea rows="5" required
+                    <textarea id="message" rows="5" required
                         class="w-full rounded-3xl border border-slate-800 bg-slate-900/90 px-4 py-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
                         placeholder="Tell us about your business vision..."></textarea>
                 </div>
@@ -520,6 +526,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/turnstyle-captcha.js"></script>
 </body>
 
 </html>
