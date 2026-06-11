@@ -207,12 +207,32 @@ html[data-theme="light"] .button-rate-inactive:hover {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    display: revert;
 }
 
 [data-rate].rate-panel-hidden:not(#fake) {
     opacity: 0;
     transform: translateY(8px);
     pointer-events: none;
+}
+
+[data-rate].rate-panel-gone {
+    display: none !important;
+}
+
+.grid-cell-1-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.grid-cell-2-1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.grid-cell-3-1 {
+    grid-column: 3;
+    grid-row: 1;
 }
 
 html[data-theme="light"] input,
