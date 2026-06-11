@@ -338,3 +338,31 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
         display: none;
     }
 }
+
+/* ── Contact form feedback ── */
+.form-feedback {
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.form-feedback--visible {
+    opacity: 1;
+}
+
+.form-feedback--success {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+
+.form-feedback--error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+}
