@@ -193,6 +193,28 @@ html[data-theme="light"] .button-rate-inactive:hover {
     border-color: #475569 !important;
 }
 
+/* Rate panel visibility transitions */
+[data-rate]:not(button) {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+[data-rate].rate-panel-no-transition {
+    transition: none !important;
+}
+
+/* Use :not(#fake) to increase specificity over stagger-item */
+[data-rate].rate-panel-visible:not(#fake) {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+[data-rate].rate-panel-hidden:not(#fake) {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+}
+
 html[data-theme="light"] input,
 html[data-theme="light"] textarea {
     background: #f8fafc !important;
