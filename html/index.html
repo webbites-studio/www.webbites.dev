@@ -37,6 +37,8 @@
             }
         }
     </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="js/turnstile-captcha.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 
 
@@ -494,6 +496,9 @@
                     <textarea rows="5" required
                         class="w-full rounded-3xl border border-slate-800 bg-slate-900/90 px-4 py-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
                         placeholder="Tell us about your business vision..."></textarea>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA"></div>
                 </div>
                 <button type="submit"
                     class="w-full rounded-full bg-gradient-to-r from-indigo-500 to-sky-500 px-8 py-4 text-sm font-semibold uppercase tracking-[0.35em] text-white shadow-glow transition hover:brightness-110">Submit
