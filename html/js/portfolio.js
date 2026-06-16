@@ -72,6 +72,7 @@ function generatePortfolio() {
     selectedItems.forEach(item => {
         const portfolioItem = document.createElement('div');
         portfolioItem.className = 'overflow-hidden rounded-3xl bg-slate-900/80';
+        portfolioItem.setAttribute('data-interactive-panel', '');
         portfolioItem.innerHTML = `
             <a href="${item.href}" target="_blank" rel="noopener noreferrer">
             <img src="${item.image}" alt="${item.title}" class="h-72 w-full object-cover" />
