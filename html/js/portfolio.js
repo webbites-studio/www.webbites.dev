@@ -4,7 +4,7 @@ const portfolioItems = [
         image: 'images/portfolio/quietmusic1.png',
         title: 'Modern Musician Portfolio',
         category: 'Web Design',
-        description: 'A sophisticated digital showcase crafted for musicians and performers, featuring a clean aesthetic, captivating visuals, and an intuitive browsing experience that highlights artistic talent and upcoming events.'
+        description: 'Digital showcase crafted for musicians and performers, featuring a clean aesthetic, captivating visuals, and an intuitive browsing experience that highlights artistic talent and upcoming events.'
     },
     {
         href: 'https://quietmusic2.webbites.dev',
