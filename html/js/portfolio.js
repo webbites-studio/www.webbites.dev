@@ -4,63 +4,63 @@ const portfolioItems = [
         image: 'images/portfolio/quietmusic1.png',
         title: 'Modern Musician Portfolio',
         category: 'Web Design',
-        description: 'A sophisticated digital showcase crafted for musicians and performers, featuring a clean aesthetic, captivating visuals, and an intuitive browsing experience that highlights artistic talent and upcoming events.'
+        description: 'A clear, easy-to-use site that lists music services and booking information for jazz musicians.'
     },
     {
         href: 'https://quietmusic2.webbites.dev',
         image: 'images/portfolio/quietmusic2.png',
-        title: 'Project Two',
-        category: 'E-commerce',
-        description: 'An e-commerce platform with a sleek and user-friendly interface.'
+        title: 'Live jazz entertainment services',
+        category: 'Web Design',
+        description: 'A one-page layout for a music group to show their services, share audio clips, display images, and collect booking requests.'
     },
     {
         href: 'https://quietmusic3.webbites.dev',
         image: 'images/portfolio/quietmusic3.png',
-        title: 'Project Three',
-        category: 'Branding',
-        description: 'A complete branding package for a new fashion brand.'
+        title: 'Live music booking and portfolio site',
+        category: 'Web Design',
+        description: 'A split-screen layout for event musicians to display service offerings, media samples, and a booking form for client inquiries.'
     },
     {
         href: 'https://raisasewing1.webbites.dev',
         image: 'images/portfolio/raisasewing1.png',
-        title: 'Project Four',
-        category: 'Mobile App',
-        description: 'A mobile app design for a fitness tracking application.'
+        title: 'Sewing, alterations, and custom accessories studio',
+        category: 'Portfolio & Sevice Showcase',
+        description: 'A minimalist, multi-section site for a professional seamstress to showcase her background, service offerings, work gallery, client testimonials, and booking information.'
     },
     {
         href: 'https://raisasewing2.webbites.dev',
         image: 'images/portfolio/raisasewing2.png',
-        title: 'Project Five',
-        category: 'UI/UX',
-        description: 'A user interface and experience design for a social media platform.'
+        title: 'Sewing and tailoring service portfolio',
+        category: 'Small Business Website',
+        description: 'A sidebar-navigated, editorial-style layout for a professional seamstress to showcase her history, service offerings, work gallery, and client feedback with an integrated booking inquiry form.'
     },
     {
         href: 'https://raisasewing3.webbites.dev',
         image: 'images/portfolio/raisasewing3.png',
-        title: 'Elegant Sewing & Accessories Boutique',
-        category: 'UI/UX',
-        description: 'A sophisticated handcrafted fashion website showcasing custom sewing, alterations, and unique accessories through refined visuals, seamless navigation, and a warm, artisan-inspired aesthetic.'
+        title: 'Professional sewing, tailoring, and accessory design',
+        category: 'Portfolio & Service Showcase',
+        description: 'A bold, high-contrast, asymmetric website for a seamstress to display her background, service offerings, work gallery, and contact information.'
     },
     {
         href: 'https://raisasewing4.webbites.dev',
         image: 'images/portfolio/raisasewing4.png',
-        title: 'Project Seven',
-        category: 'UI/UX',
-        description: 'A user interface and experience design for a social media platform.'
+        title: 'Sewing and craft services portfolio',
+        category: 'Web Design',
+        description: 'A personal website featuring a biography, service details, and a gallery for a sewing and accessory business.'
     },
     {
-        href: 'https://www.weingllcnh.com',
-        image: 'images/portfolio/weingllcnh.png',
-        title: 'Project Eight',
-        category: 'UI/UX',
-        description: 'A user interface and experience design for a social media platform.'
+        href: 'https://www.wingllcnh.com',
+        image: 'images/portfolio/wingllcnh.png',
+        title: 'Business collective membership portal',
+        category: 'Web Design',
+        description: 'A high-end platform for professional networking, featuring membership tiers, an upcoming events list, and a member directory.'
     },
     {
         href: 'https://www.inspiremeeventplanner.com',
         image: 'images/portfolio/inspiremeeventplanner.png',
-        title: 'Project Nine',
+        title: 'Luxury event planning service',
         category: 'Event Planning',
-        description: 'A comprehensive event planning platform for organizing and managing events efficiently.'
+        description: 'A high-end site showcasing event planning services, featuring a project portfolio, client testimonials, and a contact form for inquiries.'
     }
 ];
 
