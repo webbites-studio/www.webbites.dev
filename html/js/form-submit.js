@@ -12,12 +12,19 @@ function showFormFeedback(element, modifier, message) {
             element.hidden = true;
             element.removeEventListener('transitionend', hide);
         });
-    }, 10000);
+    }, 10 * 1000);
 }
 
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'not-allowed';
 
     const payload = {
         name: document.getElementById('name').value,
@@ -29,26 +36,36 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         turnstileToken: formData.get('cf-turnstile-response')
     };
 
-    // 
-    const response = await fetch('https://late-pond-aa61.ivan-kuchin-13d.workers.dev', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-    const result = await response.json();
-
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
 
-    if (result.status === "sent") {
-        let currentRate = document.querySelector("select#package").value;
-        form.reset();
-        document.querySelector("select#package").value = currentRate; // reset to current rate after form reset
+    try {
+        const response = await fetch('https://late-pond-aa61.ivan-kuchin-13d.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await response.json();
 
+        if (result.status === "sent") {
+            let currentRate = document.querySelector("select#package").value;
+            form.reset();
+            document.querySelector("select#package").value = currentRate; // reset to current rate after form reset
 
-        if (window.turnstile) window.turnstile.reset();
-        showFormFeedback(feedback, 'form-feedback--success', "Thank you! Your message has been sent. We'll be in touch soon.");
-    } else {
+            if (window.turnstile) window.turnstile.reset();
+            showFormFeedback(feedback, 'form-feedback--success', "Thank you! Your message has been sent. We'll be in touch soon.");
+        } else {
+            console.error('Turnstile returned error:', result);
+            showFormFeedback(feedback, 'form-feedback--error', "CAPTCHA verification failed. Please try again or contact us directly.");
+        }
+    } catch (_err) {
+        console.error('Fetch error to the turnstile server:', _err);
         showFormFeedback(feedback, 'form-feedback--error', "Something went wrong. Please try again or contact us directly.");
+    } finally {
+        // Restore button regardless of outcome
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.opacity = '';
+        submitBtn.style.cursor = '';
     }
 });
