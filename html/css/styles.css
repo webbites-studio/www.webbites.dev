@@ -510,7 +510,7 @@ html[data-theme="light"] .form-feedback--error {
     color: var(--text-soft);
     text-decoration: none;
     font-size: 0.875rem;
-    transition: 
+    transition:
         color 0.3s ease,
         background-color 0.3s ease;
     border: 1px solid transparent;
@@ -542,10 +542,12 @@ html[data-theme="light"] .form-feedback--error {
 }
 
 @keyframes pulse {
+
     0%,
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }

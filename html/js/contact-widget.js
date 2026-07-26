@@ -12,7 +12,7 @@
         placementId: 'contact-placement',
         loadingId: 'contact-loading',
         errorId: 'contact-error',
-        endpointUrl: 'https://1111contact-info.ivan-kuchin-13d.workers.dev',
+        endpointUrl: 'https://contact-info.ivan-kuchin-13d.workers.dev',
         maxRetries: 3,
         sitekey: '3x00000000000000000000FF'
     };
@@ -114,7 +114,11 @@
         // Insert SVG into placement div
         const placementDiv = document.getElementById(CONTACT_WIDGET_CONFIG.placementId);
         if (placementDiv) {
-            placementDiv.innerHTML = result.svg;
+            // Get the theme-appropriate text color and replace SVG fill
+            const fontColor = getComputedStyle(document.documentElement).getPropertyValue('--text-soft').trim();
+            let themeSvg = result.svg.replace(/fill="#000000"/g, `fill="${fontColor}"`);
+
+            placementDiv.innerHTML = themeSvg;
             placementDiv.classList.add('contact-revealed');
             console.log('[Contact Widget] Contact info revealed');
         }
