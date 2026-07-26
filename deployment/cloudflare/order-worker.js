@@ -20,7 +20,7 @@ export default {
 
             const verification = await verifyResponse.json();
             if (!verification.success) {
-                return new Response(JSON.stringify({ error: "CAPTCHA failed" }), {
+                return new Response(JSON.stringify({ error: "CAPTCHA verification failed" }), {
                     status: 403,
                     headers: corsHeaders
                 });

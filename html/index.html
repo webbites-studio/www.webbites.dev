@@ -532,13 +532,30 @@
     </section>
 
     <footer class="border-t py-12" style="background:var(--bg-nav);border-color:var(--border-card)">
-        <div
-            class="max-w-6xl mx-auto px-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-400 stagger">
-            <div>© 2026 Studio. All Rights Reserved.</div>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#services" class="transition hover:text-white">Services</a>
-                <a href="#pricing" class="transition hover:text-white">Pricing</a>
-                <a href="#contact" class="transition hover:text-white">Contact</a>
+        <div class="max-w-6xl mx-auto px-6">
+            <div
+                class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-sm text-slate-400 stagger">
+                <!-- Left: Copyright -->
+                <div class="stagger-item">© 2026 Studio. All Rights Reserved.</div>
+
+                <!-- Center: Navigation -->
+                <div class="flex flex-wrap justify-center gap-6 stagger-item">
+                    <a href="#services" class="transition hover:text-white">Services</a>
+                    <a href="#pricing" class="transition hover:text-white">Pricing</a>
+                    <a href="#contact" class="transition hover:text-white">Contact</a>
+                </div>
+
+                <!-- Right: Contact Widget -->
+                <div id="contact-widget-container" class="flex flex-col gap-2 items-start md:items-end stagger-item">
+                    <div id="contact-turnstile" class="cf-turnstile" data-sitekey="3x00000000000000000000FF"
+                        data-size="compact"></div>
+                    <div id="contact-placement" class="contact-info-container"></div>
+                    <div id="contact-loading" class="contact-loading" style="display: none;">
+                        <span class="text-xs text-slate-500">Verifying...</span>
+                    </div>
+                    <div id="contact-error" class="contact-error" style="display: none; color: var(--text-error);">
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -546,7 +563,8 @@
     <script src="js/stagger-load.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/form-submit.js"></script>
+    <script src="js/order-widget.js"></script>
+    <script src="js/contact-widget.js"></script>
     <script src="js/rate-switch.js"></script>
 
     <!-- Google Tag Manager (noscript) -->

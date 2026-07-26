@@ -468,3 +468,120 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
     border: 1px solid rgba(239, 68, 68, 0.4);
     color: #fca5a5;
 }
+
+/* ── Contact Widget ── */
+#contact-widget-container {
+    gap: 0.5rem;
+}
+
+.contact-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.contact-info-container.contact-revealed {
+    opacity: 1;
+}
+
+.contact-info-verified {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: 
+        color 0.3s ease,
+        background-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.contact-link:hover {
+    color: var(--text-base);
+    background-color: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke-width: 2.5;
+}
+
+.contact-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-loading {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.contact-error {
+    font-size: 0.75rem;
+    color: #fca5a5;
+    padding: 0.5rem;
+    text-align: right;
+    max-width: 200px;
+    line-height: 1.4;
+    --text-error: #fca5a5;
+}
+
+html[data-theme="light"] .contact-link {
+    color: var(--text-soft);
+}
+
+html[data-theme="light"] .contact-link:hover {
+    background-color: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+html[data-theme="light"] .contact-error {
+    color: #dc2626;
+}
+
+/* Responsive contact widget */
+@media (max-width: 768px) {
+    #contact-widget-container {
+        align-items: start !important;
+    }
+
+    .contact-link {
+        font-size: 0.8125rem;
+    }
+
+    .contact-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .contact-error {
+        max-width: 100%;
+        text-align: left;
+    }
+}
