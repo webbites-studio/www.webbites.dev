@@ -79,7 +79,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
 
     const ORDER_WIDGET_CONFIG = {
         turnstiledivId: 'order-turnstile',
-        sitekey: '3x00000000000000000000FF'
+        sitekey: '0x4AAAAAADiN8DaqoJhuVPRI'
     };
 
     function initContactWidget() {

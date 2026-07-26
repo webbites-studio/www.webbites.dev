@@ -13,8 +13,8 @@
         loadingId: 'contact-loading',
         errorId: 'contact-error',
         endpointUrl: 'https://contact-info.ivan-kuchin-13d.workers.dev',
-        maxRetries: 3,
-        sitekey: '3x00000000000000000000FF'
+        maxRetries: 5,
+        sitekey: '0x4AAAAAAD99Y4dozzYRDimq'
     };
 
     let retryCount = 0;
@@ -80,7 +80,6 @@
      */
     function onTurnstileExpired() {
         console.log('[Contact Widget] Turnstile token expired, resetting...');
-        window.turnstile.reset(`#${CONTACT_WIDGET_CONFIG.turnstiledivId}`);
     }
 
     /**
