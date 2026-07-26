@@ -82,7 +82,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         sitekey: '0x4AAAAAADiN8DaqoJhuVPRI'
     };
 
-    function initContactWidget() {
+    function initOrderWidget() {
         const turnstileDiv = document.getElementById(ORDER_WIDGET_CONFIG.turnstiledivId);
 
         if (!turnstileDiv) {
@@ -94,7 +94,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         if (typeof window.turnstile === 'undefined') {
             console.warn('[Order Widget] Turnstile API not loaded yet');
             // Retry after a short delay
-            setTimeout(initContactWidget, 100);
+            setTimeout(initOrderWidget, 100);
             return;
         }
 
@@ -108,10 +108,10 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     function mutationObserver() {
         // Listen for theme changes and update Turnstile theme accordingly
         const observer = new MutationObserver(() => {
-            const turnstileDiv = document.querySelector('form#contactForm .cf-turnstile');
+            const turnstileDiv = document.querySelector(`#${ORDER_WIDGET_CONFIG.turnstiledivId}`);
             if (turnstileDiv && window.turnstile) {
                 window.turnstile.remove(turnstileDiv);
-                initContactWidget();
+                initOrderWidget();
             }
         });
 
@@ -120,11 +120,11 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            initContactWidget();
+            initOrderWidget();
             mutationObserver();
         });
     } else {
-        initContactWidget();
+        initOrderWidget();
         mutationObserver();
     }
 
