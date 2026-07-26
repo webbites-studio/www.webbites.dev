@@ -15,6 +15,13 @@ function showFormFeedback(element, modifier, message) {
     }, 10 * 1000);
 }
 
+function resetOrderCaptcha() {
+    const turnstileDiv = document.getElementById('order-turnstile');
+    if (turnstileDiv && window.turnstile) {
+        window.turnstile.reset(turnstileDiv);
+    }
+}
+
 let currentTheme = getTheme();
 document.querySelector('form#contactForm .cf-turnstile').setAttribute('data-theme', currentTheme);
 
@@ -58,6 +65,8 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
 
             if (window.turnstile) window.turnstile.reset();
             showFormFeedback(feedback, 'form-feedback--success', "Thank you! Your message has been sent. We'll be in touch soon.");
+
+            resetOrderCaptcha(); // Reset the order form CAPTCHA as well
         } else {
             console.error('Turnstile returned error:', result);
             showFormFeedback(feedback, 'form-feedback--error', "CAPTCHA verification failed. Please try again or contact us directly.");
