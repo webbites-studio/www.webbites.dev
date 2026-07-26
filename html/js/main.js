@@ -37,7 +37,25 @@
     }
 })();
 
-function siteTypeDescrition(e) {
+/**
+ * Get current theme for Turnstile widget
+ */
+function getTheme() {
+    const htmlElement = document.documentElement;
+    const theme = htmlElement.getAttribute('data-theme');
+
+    if (theme === 'light') return 'light';
+    if (theme === 'dark') return 'dark';
+
+    // System theme preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    return 'light';
+}
+
+
+function siteTypeDescription(e) {
     const descriptions = {
         businessCard: "A 1-3 page 'Brochure' site for local service providers. It establishes online credibility, lists core services, and provides clear contact information for lead generation.",
         portfolio: "A visual-centric layout designed for architects, designers, and artists. It focuses on high-quality project galleries and minimal text to let the work speak for itself.",
@@ -54,4 +72,4 @@ function siteTypeDescrition(e) {
     textbox.value = descriptions[selectedValue] || "";
 }
 
-document.getElementById('projectType').addEventListener('change', siteTypeDescrition);
+document.getElementById('projectType').addEventListener('change', siteTypeDescription);

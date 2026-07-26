@@ -15,6 +15,10 @@ function showFormFeedback(element, modifier, message) {
     }, 10 * 1000);
 }
 
+let currentTheme = getTheme();
+document.querySelector('form#contactForm .cf-turnstile').setAttribute('data-theme', currentTheme);
+
+
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -69,3 +73,60 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         submitBtn.style.cursor = '';
     }
 });
+
+(function () {
+    'use strict';
+
+    const ORDER_WIDGET_CONFIG = {
+        turnstiledivId: 'order-turnstile',
+        sitekey: '3x00000000000000000000FF'
+    };
+
+
+    function initContactWidget() {
+        const turnstileDiv = document.getElementById(ORDER_WIDGET_CONFIG.turnstiledivId);
+
+        if (!turnstileDiv) {
+            console.warn('[Order Widget] Turnstile container not found');
+            return;
+        }
+
+        // Wait for Turnstile API to be available
+        if (typeof window.turnstile === 'undefined') {
+            console.warn('[Order Widget] Turnstile API not loaded yet');
+            // Retry after a short delay
+            setTimeout(initContactWidget, 100);
+            return;
+        }
+
+        // Render Turnstile widget explicitly (not auto-render to avoid conflicts with order form)
+        window.turnstile.render(`#${ORDER_WIDGET_CONFIG.turnstiledivId}`, {
+            sitekey: ORDER_WIDGET_CONFIG.sitekey,
+            theme: getTheme(),
+        });
+    }
+
+    function mutationObserver() {
+        // Listen for theme changes and update Turnstile theme accordingly
+        const observer = new MutationObserver(() => {
+            const turnstileDiv = document.querySelector('form#contactForm .cf-turnstile');
+            if (turnstileDiv && window.turnstile) {
+                window.turnstile.remove(turnstileDiv);
+                initContactWidget();
+            }
+        });
+
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initContactWidget();
+            mutationObserver();
+        });
+    } else {
+        initContactWidget();
+        mutationObserver();
+    }
+
+})();

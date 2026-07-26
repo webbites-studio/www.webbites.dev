@@ -521,7 +521,7 @@
                         placeholder="Tell us about your business vision..."></textarea>
                 </div>
                 <div class="flex items-center gap-2">
-                    <div class="cf-turnstile" data-sitekey="3x00000000000000000000FF"></div>
+                    <div id="order-turnstile" class="cf-turnstile"></div>
                 </div>
                 <div id="formFeedback" class="form-feedback" hidden></div>
                 <button type="submit"
@@ -547,11 +547,10 @@
 
                 <!-- Right: Contact Widget -->
                 <div id="contact-widget-container" class="flex flex-col gap-2 items-start md:items-end stagger-item">
-                    <div id="contact-turnstile" class="cf-turnstile" data-sitekey="3x00000000000000000000FF"
-                        data-size="compact"></div>
+                    <div id="contact-turnstile" class="cf-turnstile" data-size="compact"></div>
                     <div id="contact-placement" class="contact-info-container"></div>
                     <div id="contact-loading" class="contact-loading" style="display: none;">
-                        <span class="text-xs text-slate-500">Verifying...</span>
+                        <span class="text-xs text-slate-500">Loading contact info...</span>
                     </div>
                     <div id="contact-error" class="contact-error" style="display: none; color: var(--text-error);">
                     </div>
