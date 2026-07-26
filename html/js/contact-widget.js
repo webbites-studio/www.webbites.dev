@@ -186,19 +186,16 @@
      * Handle theme changes (if theme switcher exists)
      */
     function setupThemeListener() {
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                // Reinitialize Turnstile with new theme after a short delay
-                setTimeout(() => {
-                    const turnstileDiv = document.getElementById(CONTACT_WIDGET_CONFIG.turnstiledivId);
-                    if (turnstileDiv && window.turnstile) {
-                        window.turnstile.remove(`#${CONTACT_WIDGET_CONFIG.turnstiledivId}`);
-                        initContactWidget();
-                    }
-                }, 100);
-            });
-        }
+        // Listen for theme changes and update Turnstile theme accordingly
+        const observer = new MutationObserver(() => {
+            const turnstileDiv = document.querySelector(`#${CONTACT_WIDGET_CONFIG.turnstiledivId}`);
+            if (turnstileDiv && window.turnstile) {
+                window.turnstile.remove(turnstileDiv);
+                initContactWidget();
+            }
+        });
+
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     }
 
     /**
