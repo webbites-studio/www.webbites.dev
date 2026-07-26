@@ -82,7 +82,6 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         sitekey: '3x00000000000000000000FF'
     };
 
-
     function initContactWidget() {
         const turnstileDiv = document.getElementById(ORDER_WIDGET_CONFIG.turnstiledivId);
 

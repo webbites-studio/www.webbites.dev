@@ -469,6 +469,15 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
     color: #fca5a5;
 }
 
+/* Light theme feedback colors */
+html[data-theme="light"] .form-feedback--success {
+    color: #047857;
+}
+
+html[data-theme="light"] .form-feedback--error {
+    color: #991b1b;
+}
+
 /* ── Contact Widget ── */
 #contact-widget-container {
     gap: 0.5rem;
