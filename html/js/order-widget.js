@@ -40,7 +40,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     const feedback = document.getElementById('formFeedback');
 
     try {
-        const response = await fetch('https://late-pond-aa61.ivan-kuchin-13d.workers.dev', {
+        const response = await fetch('https://order-form.ivan-kuchin-13d.workers.dev', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
