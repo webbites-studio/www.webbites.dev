@@ -18,6 +18,7 @@
     };
 
     let retryCount = 0;
+    let contactSVG = ""; // Placeholder for the SVG content
 
     /**
      * Initialize the contact widget on DOM ready
@@ -112,19 +113,26 @@
             throw new Error('No SVG content in response');
         }
 
+        contactSVG = result.svg; // Store the SVG content for potential future use
+
         // Insert SVG into placement div
+        renderContactSVG(contactSVG);
+
+        showLoading(false);
+
+    }
+
+    function renderContactSVG(svgContent) {
         const placementDiv = document.getElementById(CONTACT_WIDGET_CONFIG.placementId);
         if (placementDiv) {
             // Get the theme-appropriate text color and replace SVG fill
             const fontColor = getComputedStyle(document.documentElement).getPropertyValue('--text-soft').trim();
-            let themeSvg = result.svg.replace(/fill="#000000"/g, `fill="${fontColor}"`);
+            let themeSvg = svgContent.replace(/fill="#000000"/g, `fill="${fontColor}"`);
 
             placementDiv.innerHTML = themeSvg;
             placementDiv.classList.add('contact-revealed');
-            console.log('[Contact Widget] Contact info revealed');
+            console.log('[Contact Widget] Contact info rendered');
         }
-
-        showLoading(false);
     }
 
     /**
@@ -188,11 +196,7 @@
     function setupThemeListener() {
         // Listen for theme changes and update Turnstile theme accordingly
         const observer = new MutationObserver(() => {
-            const turnstileDiv = document.querySelector(`#${CONTACT_WIDGET_CONFIG.turnstiledivId}`);
-            if (turnstileDiv && window.turnstile) {
-                window.turnstile.remove(turnstileDiv);
-                initContactWidget();
-            }
+            renderContactSVG(contactSVG); // Re-render SVG with new theme colors
         });
 
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
