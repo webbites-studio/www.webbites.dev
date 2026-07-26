@@ -80,6 +80,8 @@
      */
     function onTurnstileExpired() {
         console.log('[Contact Widget] Turnstile token expired, resetting...');
+        // Reset is not required due to contact info has already been pulled.
+        // window.turnstile.reset(`#${CONTACT_WIDGET_CONFIG.turnstiledivId}`);
     }
 
     /**
