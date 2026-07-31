@@ -220,19 +220,27 @@ html[data-theme="light"] .button-rate-inactive:hover {
     display: none !important;
 }
 
-.grid-cell-1-1 {
-    grid-column: 1;
-    grid-row: 1;
+@media (max-width: 1023px) {
+    [data-rate].rate-panel-hidden:not(#fake) {
+        display: none;
+    }
 }
 
-.grid-cell-2-1 {
-    grid-column: 2;
-    grid-row: 1;
-}
+@media (min-width: 1024px) {
+    .grid-cell-1-1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-.grid-cell-3-1 {
-    grid-column: 3;
-    grid-row: 1;
+    .grid-cell-2-1 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .grid-cell-3-1 {
+        grid-column: 3;
+        grid-row: 1;
+    }
 }
 
 html[data-theme="light"] input,
