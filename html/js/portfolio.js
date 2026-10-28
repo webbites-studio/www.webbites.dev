@@ -75,7 +75,7 @@ function generatePortfolio() {
         portfolioItem.setAttribute('data-interactive-panel', '');
         portfolioItem.innerHTML = `
             <a href="${item.href}" target="_blank" rel="noopener noreferrer">
-            <img src="${item.image}" alt="${item.title}" class="h-72 w-full object-cover" />
+            <img src="${item.image}" alt="${item.title}" width="500" height="288" loading="lazy" decoding="async" class="h-72 w-full object-cover" />
             <div class="p-6">
                 <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-2">${item.category}</p>
                 <h3 class="text-xl font-semibold text-white">${item.title}</h3>
