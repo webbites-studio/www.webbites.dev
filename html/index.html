@@ -172,14 +172,12 @@
                 class="text-lg md:text-xl font-semibold tracking-[0.25em] uppercase text-white">WebBites</a>
             <div class="hidden md:flex items-center gap-6 lg:gap-8 text-xs lg:text-sm uppercase tracking-[0.2em] lg:tracking-[0.3em] font-medium whitespace-nowrap stagger"
                 style="color:var(--text-soft)">
-                <a href="#services" class="transition" style="color:inherit"
-                    onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''">Services</a>
-                <a href="#process" class="transition" style="color:inherit"
-                    onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''">Process</a>
                 <a href="#pricing" class="transition" style="color:inherit"
                     onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''">Pricing</a>
                 <a href="website-cost-guide/" class="transition" style="color:inherit"
                     onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''">Cost Guide</a>
+                <a href="#process" class="transition" style="color:inherit"
+                    onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''">Process</a>
                 <a href="#order" onmouseover="this.style.color='var(--text-base)'" onmouseout="this.style.color=''"
                     class="rounded-full bg-gradient-to-r from-indigo-500 to-sky-500 px-5 py-2.5 text-xs lg:text-sm font-semibold uppercase tracking-[0.2em] lg:tracking-[0.3em] text-white shadow-glow transition hover:brightness-110 stagger-item">Order</a>
             </div>
@@ -222,9 +220,9 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row justify-center items-center mb-16 gap-4 stagger">
-                    <button data-rate="888" class="button-rate-active">Best</button>
+                    <button data-rate="888" class="button-rate-inactive">Best</button>
                     <button data-rate="555" class="button-rate-inactive">Popular</button>
-                    <button data-rate="333" class="button-rate-inactive">Fast</button>
+                    <button data-rate="333" class="button-rate-active">Fast</button>
                 </div>
 
                 <div class="stagger grid gap-8 grid-cols-1 lg:grid-cols-3 mb-16">
@@ -538,7 +536,7 @@
             </div>
         </section>
 
-        <section id="services" class="py-24" style="background:transparent">
+        <section id="services" class="py-24" style="background:transparent" hidden>
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 stagger">
                     <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">What we deliver</p>
@@ -583,22 +581,6 @@
             </div>
         </section>
 
-        <section id="examples" class="py-24 border-t border-b"
-            style="background:var(--bg-card);border-color:var(--border-card)">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-16 stagger">
-                    <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Portfolio</p>
-                    <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Recent website examples
-                    </h2>
-                    <p class="mt-4 text-slate-400 max-w-2xl mx-auto">A few of the sites I built with polished layouts,
-                        strong branding, and responsive UX.</p>
-                </div>
-                <div class="stagger grid gap-8 md:grid-cols-3" id="portfolio-container">
-
-                </div>
-            </div>
-        </section>
-
         <section id="process" class="py-24 border-t border-b"
             style="background:var(--bg-card);border-color:var(--border-card)">
             <div class="max-w-6xl mx-auto px-6">
@@ -634,6 +616,22 @@
             </div>
         </section>
 
+        <section id="examples" class="py-24 border-t border-b"
+            style="background:var(--bg-card);border-color:var(--border-card)">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16 stagger">
+                    <p class="text-sm uppercase tracking-[0.45em] text-sky-300 mb-4">Portfolio</p>
+                    <h2 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">Recent website examples
+                    </h2>
+                    <p class="mt-4 text-slate-400 max-w-2xl mx-auto">A few of the sites I built with polished layouts,
+                        strong branding, and responsive UX.</p>
+                </div>
+                <div class="stagger grid gap-8 md:grid-cols-3" id="portfolio-container">
+
+                </div>
+            </div>
+        </section>
+
         <section id="testimonials" class="py-24 border-t"
             style="background:var(--bg-card);border-color:var(--border-card)">
             <div class="max-w-6xl mx-auto px-6 text-center">
@@ -647,29 +645,25 @@
                         <p class="text-slate-300 leading-8 text-lg italic">“The whole site was ready in 14 days. I went
                             with 100% custom design that looks entirely luxury and tailored to my brand. Incredible
                             value.”</p>
-                        <cite
-                            class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
+                        <cite class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
                             Independent Boutique Owner</cite>
                     </div>
                     <div data-interactive-panel class="rounded-[2rem] bg-slate-900/90 p-10 flex flex-col">
                         <p class="text-slate-300 leading-8 text-lg italic">“I needed a clean portfolio to show my work
                             to new clients. It was live in under a week and the first inquiry came in days later.”</p>
-                        <cite
-                            class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
+                        <cite class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
                             Freelance Photographer</cite>
                     </div>
                     <div data-interactive-panel class="rounded-[2rem] bg-slate-900/90 p-10 flex flex-col">
                         <p class="text-slate-300 leading-8 text-lg italic">“Our menu site loads instantly on phones and
                             looks far more polished than what we had. Customers keep complimenting it.”</p>
-                        <cite
-                            class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
+                        <cite class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
                             Local Restaurant Owner</cite>
                     </div>
                     <div data-interactive-panel class="rounded-[2rem] bg-slate-900/90 p-10 flex flex-col">
                         <p class="text-slate-300 leading-8 text-lg italic">“Clear communication, quick revisions, and
                             no surprise costs. The landing page paid for itself with our first campaign.”</p>
-                        <cite
-                            class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
+                        <cite class="mt-auto pt-8 block font-semibold uppercase tracking-[0.35em] text-slate-400">—
                             Small Business Consultant</cite>
                     </div>
                 </div>

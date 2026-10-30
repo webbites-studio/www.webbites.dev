@@ -2,7 +2,7 @@
     'use strict';
 
     var ACTIVE_RATE_KEY = 'rate-active';
-    var DEFAULT_RATE = '888';
+    var DEFAULT_RATE = '333';
 
     /*
     function hidePanel(el) {
