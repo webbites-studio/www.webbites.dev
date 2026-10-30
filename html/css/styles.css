@@ -29,6 +29,11 @@
     --accent: #7dd3fc;
     --hero-glow: rgba(99, 102, 241, 0.18);
     --panel-shadow: 0 12px 40px -18px rgba(124, 58, 237, 0.45);
+    --stage-bg: radial-gradient(ellipse at 50% 25%, rgba(99, 102, 241, .30), transparent 60%),
+        radial-gradient(ellipse at 12% 85%, rgba(236, 72, 153, .18), transparent 50%),
+        radial-gradient(ellipse at 88% 85%, rgba(56, 189, 248, .18), transparent 50%),
+        linear-gradient(180deg, #0b1024 0%, #050816 100%);
+    --stage-grid: rgba(125, 211, 252, 0.35);
 }
 
 html[data-theme="light"] {
@@ -51,6 +56,11 @@ html[data-theme="light"] {
     --accent: #0369a1;
     --hero-glow: rgba(99, 102, 241, 0.10);
     --panel-shadow: 0 8px 32px rgba(100, 116, 139, 0.12);
+    --stage-bg: radial-gradient(ellipse at 50% 25%, rgba(99, 102, 241, .18), transparent 60%),
+        radial-gradient(ellipse at 12% 85%, rgba(236, 72, 153, .12), transparent 50%),
+        radial-gradient(ellipse at 88% 85%, rgba(56, 189, 248, .14), transparent 50%),
+        linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+    --stage-grid: rgba(79, 70, 229, 0.28);
 }
 
 html {
@@ -360,6 +370,313 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
     [data-interactive-panel]::before,
     [data-interactive-panel]::after {
         display: none;
+    }
+}
+
+/* ── How it works: 3D process stage (tilt driven by js/process-3d.js) ── */
+.process-stage {
+    aspect-ratio: 1200 / 560;
+    overflow: hidden;
+    perspective: 1100px;
+    background: var(--stage-bg);
+}
+
+.process-scene {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(6deg);
+}
+
+.process-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    transform: translateZ(var(--z, 0px));
+}
+
+.pw-floor {
+    color: var(--stage-grid);
+}
+
+.process-glare {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.2), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.process-stage:hover .process-glare {
+    opacity: 1;
+}
+
+/* Only animated nodes: a fill-box origin would also shift elements positioned via the transform attribute */
+.pw-bob,
+.pw-badge,
+.pw-confetti,
+.pw-pulse,
+.pw-rocket,
+.pw-flame,
+.pw-smoke circle,
+.pw-cursor,
+.pw-chat,
+.pw-twinkle,
+.pw-halo,
+.pw-live {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.pw-ped-text {
+    fill: #e0e7ff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-anchor: middle;
+    opacity: 0.8;
+}
+
+.pw-badge-num {
+    fill: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    text-anchor: middle;
+}
+
+.pw-label {
+    fill: var(--text-base);
+    font-size: 15px;
+    font-weight: 600;
+    text-anchor: middle;
+}
+
+.pw-sparks {
+    fill: #fff;
+}
+
+html[data-theme="light"] .pw-sparks {
+    fill: #818cf8;
+}
+
+.pw-bob,
+.pw-badge {
+    animation: pwBob 5s ease-in-out infinite;
+}
+
+.pw-badge {
+    animation-duration: 4.5s;
+}
+
+.pw-confetti {
+    animation: pwBob 3.5s ease-in-out infinite reverse;
+}
+
+.pw-pulse {
+    animation: pwPulse 3s ease-out infinite;
+}
+
+.pw-flow {
+    animation: pwFlow 0.9s linear infinite;
+}
+
+.pw-rocket {
+    animation: pwRocket 3s ease-in-out infinite;
+}
+
+.pw-flame {
+    transform-origin: top center;
+    animation: pwFlame 0.16s ease-in-out infinite alternate;
+}
+
+.pw-smoke circle {
+    animation: pwPuff 3s ease-in-out infinite;
+}
+
+.pw-smoke circle:nth-child(2),
+.pw-smoke circle:nth-child(4) {
+    animation-delay: -1.5s;
+}
+
+.pw-cursor {
+    animation: pwCursor 4.5s ease-in-out infinite;
+}
+
+.pw-chat {
+    transform-origin: bottom center;
+    animation: pwChat 4s ease-in-out infinite;
+}
+
+.pw-twinkle {
+    animation: pwTwinkle 2.8s ease-in-out infinite;
+}
+
+.pw-halo,
+.pw-live {
+    animation: pwHalo 2.4s ease-in-out infinite;
+}
+
+@keyframes pwBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes pwPulse {
+    from {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+
+    to {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+@keyframes pwFlow {
+    to {
+        stroke-dashoffset: -14;
+    }
+}
+
+@keyframes pwRocket {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes pwFlame {
+    from {
+        transform: scale(1.05, 0.8);
+    }
+
+    to {
+        transform: scale(0.92, 1.15);
+    }
+}
+
+@keyframes pwPuff {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(1.18);
+        opacity: 1;
+    }
+}
+
+@keyframes pwCursor {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    30% {
+        transform: translate(-44px, -10px);
+    }
+
+    60%,
+    80% {
+        transform: translate(30px, 30px);
+    }
+
+    70% {
+        transform: translate(30px, 30px) scale(0.8);
+    }
+}
+
+@keyframes pwChat {
+
+    0%,
+    10% {
+        opacity: 0;
+        transform: translateY(6px) scale(0.8);
+    }
+
+    20%,
+    45% {
+        opacity: 1;
+        transform: none;
+    }
+
+    55%,
+    100% {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.95);
+    }
+}
+
+@keyframes pwTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.5) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1) rotate(45deg);
+    }
+}
+
+@keyframes pwHalo {
+    50% {
+        transform: scale(1.15);
+        opacity: 0.55;
+    }
+}
+
+/* Caption hover spotlights its model; stage hover highlights its caption */
+.process-stage [data-step] {
+    transition: opacity 0.4s ease;
+}
+
+.process-stage[data-active] [data-step] {
+    opacity: 0.2;
+}
+
+.process-stage[data-active="1"] [data-step="1"],
+.process-stage[data-active="2"] [data-step="2"],
+.process-stage[data-active="3"] [data-step="3"] {
+    opacity: 1;
+}
+
+.process-step.is-active {
+    border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process-stage svg * {
+        animation: none;
+    }
+
+    .process-scene {
+        transform: none;
     }
 }
 
