@@ -7,6 +7,7 @@
         "watch:css": "tailwindcss -c tailwind.config.js -i tooling/css/tailwind.css -o html/css/tailwind.css --watch",
         "copy:fonts": "node -e \"require('fs').mkdirSync('html/fonts',{recursive:true});require('fs').copyFileSync('node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2','html/fonts/inter-latin-wght-normal.woff2')\"",
         "build": "npm run copy:fonts && npm run build:css",
+        "test": "node --test",
         "add_to_portfolio": "node tooling/infra/add-to-portfolio.js"
     },
     "devDependencies": {
