@@ -907,10 +907,16 @@
                                     <use href="#pw-person" fill="url(#pw-body-a)" transform="translate(178 420)" />
                                 </g>
                                 <g data-step="2">
-                                    <use href="#pw-person" fill="url(#pw-body-b)"
-                                        transform="translate(492 422) scale(.82)" />
-                                    <use href="#pw-person" fill="url(#pw-body-c)"
-                                        transform="translate(708 422) scale(.82)" />
+                                    <g transform="translate(492 422) scale(.82)">
+                                        <g class="pw-talk">
+                                            <use href="#pw-person" fill="url(#pw-body-b)" />
+                                        </g>
+                                    </g>
+                                    <g transform="translate(708 422) scale(.82)">
+                                        <g class="pw-talk" style="animation-delay:-.2s">
+                                            <use href="#pw-person" fill="url(#pw-body-c)" />
+                                        </g>
+                                    </g>
                                     <polygon points="546,318 654,318 624,420 576,420" fill="url(#pw-beam)" />
                                     <g class="pw-bob">
                                         <rect x="530" y="212" width="140" height="106" rx="12" fill="url(#pw-glass)"
@@ -918,10 +924,20 @@
                                         <circle cx="544" cy="226" r="3.5" fill="#f87171" />
                                         <circle cx="555" cy="226" r="3.5" fill="#fbbf24" />
                                         <circle cx="566" cy="226" r="3.5" fill="#34d399" />
-                                        <rect x="542" y="238" width="116" height="34" rx="6" fill="url(#pw-hero)" />
+                                        <rect class="pw-screen-hero" x="542" y="238" width="116" height="34" rx="6"
+                                            fill="url(#pw-hero)" />
                                         <rect x="542" y="282" width="66" height="6" rx="3" fill="#fff" opacity=".55" />
                                         <rect x="542" y="294" width="46" height="6" rx="3" fill="#fff" opacity=".35" />
                                         <rect x="618" y="280" width="40" height="18" rx="9" fill="#38bdf8" />
+                                        <rect class="pw-busy pw-type" x="542" y="306" width="90" height="4" rx="2"
+                                            fill="#a78bfa" />
+                                        <circle class="pw-busy pw-ping" cx="658" cy="280" r="5" fill="#f472b6" />
+                                        <g transform="translate(560 290)">
+                                            <g class="pw-busy pw-cursor pw-cursor-2">
+                                                <path d="M0 0V18L5 13 9 21 12.5 19.5 8.5 12H15Z" fill="#f472b6"
+                                                    stroke="#0f172a" stroke-width="1.2" stroke-linejoin="round" />
+                                            </g>
+                                        </g>
                                         <g transform="translate(600 252)">
                                             <g class="pw-cursor">
                                                 <path d="M0 0V18L5 13 9 21 12.5 19.5 8.5 12H15Z" fill="#fff"
@@ -977,9 +993,10 @@
                                     <circle cx="138" cy="246" r="6" fill="#fde047" opacity=".8" />
                                     <g class="pw-bob" style="animation-delay:-.4s">
                                         <circle cx="118" cy="214" r="46" fill="url(#pw-bulb-halo)" class="pw-halo" />
-                                        <path d="M118 194l0-14M98 200l-9-10M138 200l9-10M92 216H80M144 216h12"
+                                        <path class="pw-rays"
+                                            d="M118 194l0-14M98 200l-9-10M138 200l9-10M92 216H80M144 216h12"
                                             stroke="#fde047" stroke-width="3" stroke-linecap="round" />
-                                        <circle cx="118" cy="214" r="18" fill="url(#pw-bulb)" />
+                                        <circle class="pw-bulb" cx="118" cy="214" r="18" fill="url(#pw-bulb)" />
                                         <rect x="110" y="230" width="16" height="10" rx="3" fill="#94a3b8" />
                                         <ellipse cx="112" cy="207" rx="5" ry="4" fill="#fff" opacity=".85" />
                                     </g>
@@ -1003,6 +1020,18 @@
                                             fill="#0ea5e9" />
                                         <path d="M735 263l5 5 10-10" fill="none" stroke="#fff" stroke-width="3"
                                             stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <g class="pw-chat pw-chat-extra" style="animation-delay:-.8s">
+                                        <path d="M412 208h36a12 12 0 0 1 0 24h-24l-7 7v-7h-5a12 12 0 0 1 0-24z"
+                                            fill="#a855f7" />
+                                        <path d="M430 227l-6-6a3.6 3.6 0 0 1 6-4 3.6 3.6 0 0 1 6 4z" fill="#fff" />
+                                    </g>
+                                    <g class="pw-chat pw-chat-extra" style="animation-delay:-1.2s">
+                                        <path d="M788 208h-36a12 12 0 0 0 0 24h24l7 7v-7h5a12 12 0 0 0 0-24z"
+                                            fill="#10b981" />
+                                        <circle cx="758" cy="220" r="2.6" fill="#fff" />
+                                        <circle cx="768" cy="220" r="2.6" fill="#fff" />
+                                        <circle cx="778" cy="220" r="2.6" fill="#fff" />
                                     </g>
                                 </g>
                                 <g data-step="3">

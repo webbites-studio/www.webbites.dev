@@ -159,6 +159,22 @@ Progressive reveal of child elements on scroll:
 </div>
 ```
 
+### "How it works" Caption Hover Effects
+
+Hovering a step caption (`[data-process-step]`) makes `js/process-3d.js` set `data-active="1|2|3"` on `.process-stage`. CSS in `styles.css` uses that attribute to dim the other steps and play each step's effect:
+
+| Step | Effect | Hooks |
+|------|--------|-------|
+| 1 – Share your vision | Idea bulb switches on and pulses (rays + halo) | `.pw-bulb`, `.pw-rays`, `.pw-halo` |
+| 2 – Collaborate | People "talk", chat bubbles speed up and extra bubbles appear, screen cursor speeds up, second cursor/typing line/ping appear, hero block cycles hue | `.pw-talk`, `.pw-chat`, `.pw-chat-extra`, `.pw-cursor`, `.pw-busy`, `.pw-type`, `.pw-ping`, `.pw-screen-hero` |
+| 3 – Launch | Rocket shakes, lifts off past the top of the stage, flame grows, smoke billows; on mouse leave the rocket glides back (`.is-landing`, 1.2s) | `.pw-rocket`, `.pw-flame`, `.pw-smoke` |
+
+**Rules of thumb:**
+- Hover rules live inside `@media (prefers-reduced-motion: no-preference)`; their selectors outrank the reduced-motion `animation: none` reset, so they must not be placed outside it.
+- Don't add a CSS animation to an SVG element that already has a `transform="…"` attribute (it would be replaced). Wrap it in a `<g>` and animate the inner group (see `.pw-talk`).
+- Hover-only extras start hidden (`.pw-busy` → `opacity: 0`, `.pw-chat-extra` → `visibility: hidden`).
+- Hovering the 3D scene itself only highlights the matching caption; it does not trigger these effects. Touch and keyboard are not wired up.
+
 ## Interactive Components
 
 ### Interactive Panels
