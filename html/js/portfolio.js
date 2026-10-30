@@ -4,14 +4,14 @@ const portfolioItems = [
         href: 'https://quietmusic1.webbites.dev',
         slug: 'quietmusic1',
         title: 'Modern Musician Portfolio',
-        category: 'Web Design',
+        category: 'Music',
         description: 'A clear, easy-to-use site that lists music services and booking information for jazz musicians.'
     },
     {
         href: 'https://quietmusic2.webbites.dev',
         slug: 'quietmusic2',
         title: 'Live jazz entertainment services',
-        category: 'Web Design',
+        category: 'Music',
         description: 'A one-page layout for a music group to show their services, share audio clips, display images, and collect booking requests.'
     },
     // Hidden until the live site's hero and gallery images are fixed (they currently 404).
@@ -26,35 +26,35 @@ const portfolioItems = [
         href: 'https://raisasewing1.webbites.dev',
         slug: 'raisasewing1',
         title: 'Sewing, alterations, and custom accessories studio',
-        category: 'Portfolio & Service Showcase',
+        category: 'Arts & Crafts',
         description: 'A minimalist, multi-section site for a professional seamstress to showcase her background, service offerings, work gallery, client testimonials, and booking information.'
     },
     {
         href: 'https://raisasewing2.webbites.dev',
         slug: 'raisasewing2',
         title: 'Sewing and tailoring service portfolio',
-        category: 'Small Business Website',
+        category: 'Arts & Crafts',
         description: 'A sidebar-navigated, editorial-style layout for a professional seamstress to showcase her history, service offerings, work gallery, and client feedback with an integrated booking inquiry form.'
     },
     {
         href: 'https://raisasewing3.webbites.dev',
         slug: 'raisasewing3',
         title: 'Professional sewing, tailoring, and accessory design',
-        category: 'Portfolio & Service Showcase',
+        category: 'Arts & Crafts',
         description: 'A bold, high-contrast, asymmetric website for a seamstress to display her background, service offerings, work gallery, and contact information.'
     },
     {
         href: 'https://raisasewing4.webbites.dev',
         slug: 'raisasewing4',
         title: 'Sewing and craft services portfolio',
-        category: 'Web Design',
+        category: 'Arts & Crafts',
         description: 'A personal website featuring a biography, service details, and a gallery for a sewing and accessory business.'
     },
     {
         href: 'https://www.wingllcnh.com',
         slug: 'wingllcnh',
         title: 'Business collective membership portal',
-        category: 'Web Design',
+        category: 'Business',
         description: 'A high-end platform for professional networking, featuring membership tiers, an upcoming events list, and a member directory.'
     },
     {
