@@ -72,4 +72,5 @@ function siteTypeDescription(e) {
     textbox.value = descriptions[selectedValue] || "";
 }
 
-document.getElementById('projectType').addEventListener('change', siteTypeDescription);
+var projectTypeSelect = document.getElementById('projectType');
+if (projectTypeSelect) projectTypeSelect.addEventListener('change', siteTypeDescription);

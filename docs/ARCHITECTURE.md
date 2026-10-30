@@ -7,6 +7,8 @@
 ```
 html/
 ├── index.html              # Main HTML document
+├── website-cost-guide/
+│   └── index.html         # Cost guide page (served at /website-cost-guide/)
 ├── css/
 │   └── styles.css         # Custom styles and theme system
 ├── images/                # Image assets and graphics
