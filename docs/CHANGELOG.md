@@ -17,8 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Static portfolio fallback cards (no-JS / SEO)
 - "How it works" 3D stage: layered SVG scene (customer → collaboration → rocket launch) with mouse-driven tilt, parallax depth, and glare (`html/js/process-3d.js`, `.process-stage` styles); captions spotlight their step
 - Build tooling: `package.json`, `tailwind.config.js`, `src/tailwind.css`; self-hosted Inter font in `html/fonts/`
+- Portfolio screenshots re-captured per site in three sizes (`<slug>.jpg` 1280x800, `<slug>-640.jpg`, `<slug>-mobile.jpg` 390x844)
 
 ### Changed
+- Portfolio cards show screenshots in a browser-chrome frame with pointer-driven 3D tilt and glare (`html/js/portfolio.js`, `.site-card` / `.site-frame` styles)
+- Hero mockup is a random portfolio site (desktop frame + phone overlay, 3D tilt), distinct from the three cards below
 - 14-day delivery is promised only for the Fast plan; Popular and Best get a delivery date agreed upfront
 - Tailwind CSS is compiled to `html/css/tailwind.css` instead of loaded from the CDN
 - Theme colors use semantic Tailwind tokens backed by CSS variables; removed `[class*=...] !important` light-mode overrides

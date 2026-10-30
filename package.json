@@ -6,10 +6,12 @@
         "build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o html/css/tailwind.css --minify",
         "watch:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o html/css/tailwind.css --watch",
         "copy:fonts": "node -e \"require('fs').mkdirSync('html/fonts',{recursive:true});require('fs').copyFileSync('node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2','html/fonts/inter-latin-wght-normal.woff2')\"",
-        "build": "npm run copy:fonts && npm run build:css"
+        "build": "npm run copy:fonts && npm run build:css",
+        "add_to_portfolio": "node scripts/add-to-portfolio.js"
     },
     "devDependencies": {
         "@fontsource-variable/inter": "^5.3.0",
+        "playwright-core": "^1.64.1",
         "tailwindcss": "^3.4.19"
     }
 }
