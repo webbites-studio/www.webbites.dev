@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Privacy policy page at `/privacy/`, linked from footers and the order form
 - Static portfolio fallback cards (no-JS / SEO)
 - "How it works" 3D stage: layered SVG scene (customer → collaboration → rocket launch) with mouse-driven tilt, parallax depth, and glare (`html/js/process-3d.js`, `.process-stage` styles); captions spotlight their step
-- Build tooling: `package.json`, `tailwind.config.js`, `src/tailwind.css`; self-hosted Inter font in `html/fonts/`
+- Build tooling: `package.json`, `tailwind.config.js`, `tooling/css/tailwind.css`, `tooling/infra/add-to-portfolio.js`; self-hosted Inter font in `html/fonts/`
 - Portfolio screenshots re-captured per site in three sizes (`<slug>.jpg` 1280x800, `<slug>-640.jpg`, `<slug>-mobile.jpg` 390x844)
 
 ### Changed

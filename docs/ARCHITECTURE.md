@@ -7,7 +7,9 @@
 ```
 package.json               # Build scripts (Tailwind CLI, font copy)
 tailwind.config.js         # Tailwind config (semantic colors -> CSS variables)
-src/tailwind.css           # Tailwind input (not deployed)
+tooling/                   # Build/dev tooling (not deployed)
+├── css/tailwind.css       # Tailwind input
+└── infra/add-to-portfolio.js  # Portfolio helper (npm run add_to_portfolio)
 html/
 ├── index.html              # Main HTML document
 ├── website-cost-guide/

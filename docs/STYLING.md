@@ -6,7 +6,7 @@ The styling system combines Tailwind CSS utility classes with a custom theme sys
 
 ## Tailwind CSS Configuration
 
-Tailwind is compiled with the CLI. Config lives in `tailwind.config.js`; the input is `src/tailwind.css`; the output `html/css/tailwind.css` is committed and deployed.
+Tailwind is compiled with the CLI. Config lives in `tailwind.config.js`; the input is `tooling/css/tailwind.css`; the output `html/css/tailwind.css` is committed and deployed.
 
 ```bash
 npm install          # once
