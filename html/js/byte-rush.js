@@ -18,6 +18,8 @@
     var markersLayer = dialog.querySelector('[data-byte-lane-markers]');
     var player = dialog.querySelector('[data-byte-player]');
     var ns = 'http://www.w3.org/2000/svg';
+    // Invert the track projection at the player's SVG y-coordinate.
+    var playerDepth = Math.pow((372 - 72) / 340, 2 / 3);
     var raf = 0;
     var lastFrame = 0;
     var elapsed = 0;
@@ -237,10 +239,13 @@
         var remaining = [];
         for (var i = 0; i < entities.length; i += 1) {
             var entity = entities[i];
+            var previousZ = entity.z;
             entity.z += delta * speed;
             positionEntity(entity);
+            // Include crossings during this frame, but never react to passed objects.
+            var canInteract = previousZ <= playerDepth;
 
-            if (entity.lane === lane && entity.z >= 0.89) {
+            if (canInteract && entity.lane === lane && entity.z >= 0.89) {
                 if (entity.type === 'bug') {
                     endRun();
                     return;
@@ -255,7 +260,7 @@
                 }
             }
 
-            if (entity.type === 'bug' && entity.lane !== lane && !entity.nearMissed && entity.z >= 0.78) {
+            if (canInteract && entity.type === 'bug' && entity.lane !== lane && !entity.nearMissed && entity.z >= 0.78) {
                 entity.nearMissed = true;
                 addScore(5);
                 live.textContent = 'Close call! Five bonus points.';
