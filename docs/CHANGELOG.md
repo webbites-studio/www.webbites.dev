@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Cost guide page at `/website-cost-guide/` (`html/website-cost-guide/index.html`) with FAQ schema, linked from homepage nav and footer and listed in `sitemap.xml`
+- Hero with subheading, "Start your project" / "See pricing" CTAs, and a portfolio mockup
+- Mobile navigation menu (hamburger) with visible Order button on small screens
+- Side-by-side pricing comparison (Fast / Popular / Best) with "Choose" buttons that preselect the plan in the order form
+- "Included / Not included" lists, About section, and FAQ section (with `FAQPage` schema)
+- Privacy policy page at `/privacy/`, linked from footers and the order form
+- Static portfolio fallback cards (no-JS / SEO)
+- Build tooling: `package.json`, `tailwind.config.js`, `src/tailwind.css`; self-hosted Inter font in `html/fonts/`
+
+### Changed
+- 14-day delivery is promised only for the Fast plan; Popular and Best get a delivery date agreed upfront
+- Tailwind CSS is compiled to `html/css/tailwind.css` instead of loaded from the CDN
+- Theme colors use semantic Tailwind tokens backed by CSS variables; removed `[class*=...] !important` light-mode overrides
+- Animated glow limited to `[data-featured]` panels; other panels use a static shadow
+- Reduced uppercase letter-spacing; labels, buttons, and testimonial captions use normal case
+- Support options copy clarified (Continuous Care vs Urgent request); `Popular` badge positioning fixed
+- Theme toggle uses `.theme-toggle` class (multiple instances) with `aria-pressed`
+- Order form fields have `name` attributes; order worker now includes the selected package and blocks Discord mentions
+
+### Removed
+- Rate switcher buttons and related CSS (`button-rate-*`, `rate-panel-*`, `grid-cell-*`)
+- Dead footer link to the hidden `#services` section; inline `onmouseover` handlers
 
 ### Planned
 - Add contact form functionality

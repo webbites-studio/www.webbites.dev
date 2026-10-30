@@ -369,7 +369,7 @@ Clear cache:
 1. Test with Google PageSpeed Insights
 2. Check Network tab in browser DevTools
 3. Verify image sizes
-4. Check CDN status (Tailwind CSS)
+4. Rebuild CSS (`npm run build:css`) if Tailwind classes look missing
 
 **Solutions:**
 - Optimize images (compress, resize, convert to WebP)

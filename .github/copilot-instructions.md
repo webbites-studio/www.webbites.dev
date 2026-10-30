@@ -26,10 +26,10 @@ All interactive panels (cards, sections, features) follow these mandatory patter
    - Defined in `[data-interactive-panel]:hover` selector
    - Transition duration: 0.3s ease
 
-3. **Glow Border Effect**: All panels have animated glow around borders
-   - Uses `glowFlicker` animation (8s ease-in-out infinite)
-   - Creates dynamic shadow effects with purple/indigo glow
-   - Always applied to `[data-interactive-panel]` elements
+3. **Glow Border Effect**: Only highlighted panels get the animated glow
+   - Add `data-featured` alongside `data-interactive-panel` (e.g. the hero mockup, the "Most popular" plan, the order form)
+   - Uses `glowFlicker` animation (8s ease-in-out infinite), dark theme only
+   - All other panels use the static `--panel-shadow` token
 
 4. **Stagger Loading**: All panels MUST implement staggered reveal animations on scroll
    - Every group of panels requires a parent container with `.stagger` class
@@ -57,6 +57,8 @@ All interactive panels (cards, sections, features) follow these mandatory patter
 - Dark/light theme switching via `html[data-theme="light"]` attribute
 - Never inline critical styles—reference existing CSS patterns
 - **Styling preference**: Use Tailwind utilities for layout and spacing, custom CSS for animations and theme variables
+- **Colors**: Use the semantic Tailwind colors (`text-fg`, `text-fg-soft`, `text-fg-muted`, `text-accent`, `bg-card`, `bg-section`, `bg-field`, `bg-chip`, `border-line`) that map to CSS variables; do not use raw `text-white` / `bg-slate-*` for themed content or add `!important` light-mode overrides
+- **Tailwind is compiled**, not loaded from the CDN: run `npm run build:css` after changing classes (output: `html/css/tailwind.css`, config: `tailwind.config.js`)
 
 ### JavaScript
 - All scripts go in `html/js/` directory

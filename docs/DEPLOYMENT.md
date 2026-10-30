@@ -6,6 +6,10 @@ This guide covers deploying the WebBites.dev website to various hosting platform
 
 ## Pre-Deployment Checklist
 
+### 0. Build
+- [ ] Run `npm install` (first time) and `npm run build` so `html/css/tailwind.css` and `html/fonts/` are up to date and committed
+- [ ] If `deployment/cloudflare/order-worker.js` changed, redeploy the worker
+
 ### 1. Content Verification
 - [ ] All text content is proofread and accurate
 - [ ] All images are optimized and loaded
@@ -431,7 +435,7 @@ git push origin main
 
 1. Always use HTTPS
 2. Set security headers (CSP, HSTS)
-3. Keep dependencies updated (Tailwind CDN)
+3. Keep dependencies updated (`npm outdated`, then rebuild CSS)
 4. Regular backups
 5. Monitor for suspicious activity
 6. Use strong passwords for hosting accounts

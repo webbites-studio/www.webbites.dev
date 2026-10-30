@@ -1,18 +1,34 @@
-/* ── Theme tokens ── */
+/* ── Fonts ── */
+@font-face {
+    font-family: "Inter Variable";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Theme tokens (consumed by Tailwind colors in tailwind.config.js) ── */
 :root {
     --bg-body: radial-gradient(circle at top, rgba(96, 165, 250, .12), transparent 28%),
         radial-gradient(circle at 15% 20%, rgba(236, 72, 153, .12), transparent 18%),
         linear-gradient(180deg, #020617 0%, #090f1f 100%);
     --bg-nav: rgba(2, 6, 23, 0.90);
     --bg-panel: rgba(15, 23, 42, 0.88);
-    --bg-card: rgba(15, 23, 42, 0.80);
+    --bg-section: rgba(15, 23, 42, 0.80);
+    --bg-card: rgba(15, 23, 42, 0.90);
     --bg-form: rgba(2, 6, 23, 0.90);
+    --bg-field: rgba(15, 23, 42, 0.90);
+    --bg-chip: #1e293b;
     --border: rgba(148, 163, 184, 0.16);
     --border-card: rgba(30, 41, 59, 1);
     --text-base: #f1f5f9;
+    --text-subtle: #cbd5e1;
     --text-soft: #94a3b8;
     --text-muted: #64748b;
+    --accent: #7dd3fc;
     --hero-glow: rgba(99, 102, 241, 0.18);
+    --panel-shadow: 0 12px 40px -18px rgba(124, 58, 237, 0.45);
 }
 
 html[data-theme="light"] {
@@ -21,14 +37,20 @@ html[data-theme="light"] {
         linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
     --bg-nav: rgba(255, 255, 255, 0.92);
     --bg-panel: rgba(255, 255, 255, 0.90);
-    --bg-card: rgba(248, 250, 252, 0.95);
-    --bg-form: rgba(255, 255, 255, 0.95);
+    --bg-section: rgba(248, 250, 252, 0.95);
+    --bg-card: #ffffff;
+    --bg-form: #ffffff;
+    --bg-field: #f8fafc;
+    --bg-chip: #e2e8f0;
     --border: rgba(99, 102, 241, 0.18);
     --border-card: rgba(203, 213, 225, 1);
     --text-base: #0f172a;
+    --text-subtle: #334155;
     --text-soft: #475569;
     --text-muted: #64748b;
+    --accent: #0369a1;
     --hero-glow: rgba(99, 102, 241, 0.10);
+    --panel-shadow: 0 8px 32px rgba(100, 116, 139, 0.12);
 }
 
 html {
@@ -65,14 +87,30 @@ html[data-theme="light"] body {
     }
 }
 
-/* ── Interactive panel: shared hover, glow & border-draw effects ── */
+/* ── Interactive panel: shared hover & border-draw effects ── */
 [data-interactive-panel] {
     position: relative;
     isolation: isolate;
     border: 1px solid var(--border-card);
+    box-shadow: var(--panel-shadow);
     transition: transform 0.3s ease, background-color 0.35s, border-color 0.35s, box-shadow 0.35s;
-    animation: glowFlicker 8s ease-in-out infinite;
     will-change: transform;
+}
+
+/* Animated glow is reserved for highlighted panels so it keeps its impact */
+[data-interactive-panel][data-featured] {
+    border-color: rgba(125, 211, 252, 0.45);
+    animation: glowFlicker 8s ease-in-out infinite;
+}
+
+html[data-theme="light"] [data-interactive-panel][data-featured] {
+    border-color: rgba(3, 105, 161, 0.45);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.22);
+    animation: none;
+}
+
+html[data-theme="light"] .shadow-glow {
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
 }
 
 [data-interactive-panel]:hover {
@@ -89,170 +127,46 @@ html[data-theme="light"] body {
     backdrop-filter: blur(18px);
 }
 
-/* ── Light-theme card / form overrides ── */
-html[data-theme="light"] .hero-panel,
-html[data-theme="light"] [class*="bg-slate-9"],
-html[data-theme="light"] [class*="bg-slate-950"] {
-    background: var(--bg-card) !important;
-    border-color: var(--border-card) !important;
+/* ── FAQ accordion ── */
+.faq-item summary {
+    list-style: none;
 }
 
-html[data-theme="light"] [class*="shadow-glow"],
-html[data-theme="light"] .hero-panel,
-html[data-theme="light"] [data-interactive-panel] {
-    box-shadow: 0 8px 32px rgba(100, 116, 139, 0.12) !important;
-    animation: none !important;
+.faq-item summary::-webkit-details-marker {
+    display: none;
 }
 
-html[data-theme="light"] [class*="text-slate-4"] {
-    color: var(--text-soft) !important;
+.faq-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    position: relative;
 }
 
-html[data-theme="light"] [class*="text-slate-3"] {
-    color: var(--text-soft) !important;
+.faq-icon::before,
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.875rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s ease;
 }
 
-html[data-theme="light"] [class*="text-slate-1"] {
-    color: var(--text-base) !important;
+.faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
 }
 
-html[data-theme="light"] [class*="text-white"] {
-    color: var(--text-base) !important;
+.faq-item[open] .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
-/* Keep white text on gradient/coloured buttons */
-html[data-theme="light"] [class*="from-indigo"][class*="text-white"],
-html[data-theme="light"] [class*="bg-gradient"][class*="text-white"] {
-    color: #fff !important;
-}
-
-/* Ghost / outline buttons in light mode */
-html[data-theme="light"] [class*="border-slate-7"][class*="bg-slate-9"] {
-    background: transparent !important;
-    border-color: #94a3b8 !important;
-    color: var(--text-base) !important;
-}
-
-/* ── Rate toggle buttons ── */
-.button-rate-active {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    padding: 1rem 2rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.35em;
-    color: #fff;
-    background: linear-gradient(to right, #6366f1, #0ea5e9);
-    box-shadow: 0 0 18px rgba(99, 102, 241, 0.55), 0 0 36px rgba(14, 165, 233, 0.3);
-    transition: filter 0.3s ease;
-}
-
-.button-rate-active:hover {
-    filter: brightness(1.1);
-}
-
-.button-rate-inactive {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    padding: 1rem 2rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.35em;
-    color: #cbd5e1;
-    border: 1px solid #334155;
-    background: rgba(15, 23, 42, 0.9);
-    transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.button-rate-inactive:hover {
-    color: #fff;
-    border-color: #64748b;
-}
-
-/* Light-mode overrides for rate buttons */
-html[data-theme="light"] .button-rate-active {
-    color: #fff !important;
-    background: linear-gradient(to right, #6366f1, #0ea5e9) !important;
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4) !important;
-}
-
-html[data-theme="light"] .button-rate-inactive {
-    color: #475569 !important;
-    border-color: #94a3b8 !important;
-    background: transparent !important;
-}
-
-html[data-theme="light"] .button-rate-inactive:hover {
-    color: #1e293b !important;
-    border-color: #475569 !important;
-}
-
-/* Rate panel visibility transitions */
-[data-rate]:not(button) {
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-[data-rate].rate-panel-no-transition {
-    transition: none !important;
-}
-
-/* Use :not(#fake) to increase specificity over stagger-item */
-[data-rate].rate-panel-visible:not(#fake) {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    display: revert;
-}
-
-[data-rate].rate-panel-hidden:not(#fake) {
-    opacity: 0;
-    transform: translateY(8px);
-    pointer-events: none;
-}
-
-[data-rate].rate-panel-gone {
-    display: none !important;
-}
-
-@media (max-width: 1023px) {
-    [data-rate].rate-panel-hidden:not(#fake) {
-        display: none;
-    }
-}
-
-@media (min-width: 1024px) {
-    .grid-cell-1-1 {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .grid-cell-2-1 {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    .grid-cell-3-1 {
-        grid-column: 3;
-        grid-row: 1;
-    }
-}
-
-html[data-theme="light"] input,
-html[data-theme="light"] textarea {
-    background: #f8fafc !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-}
-
-/* ── Theme toggle button ── */
-#theme-toggle {
-    display: inline-flex;
+/* ── Theme toggle button (display is set via Tailwind classes in markup) ── */
+.theme-toggle {
     align-items: center;
     gap: 0;
     border-radius: 9999px;
@@ -262,7 +176,7 @@ html[data-theme="light"] textarea {
     transition: border-color 0.35s, background 0.35s;
 }
 
-#theme-toggle button {
+.theme-toggle button {
     padding: 6px 11px;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
@@ -275,20 +189,14 @@ html[data-theme="light"] textarea {
     white-space: nowrap;
 }
 
-#theme-toggle button.active {
+.theme-toggle button.active {
     background: linear-gradient(135deg, #6366f1, #38bdf8);
     color: #fff;
     border-radius: 9999px;
 }
 
-#theme-toggle button:hover:not(.active) {
+.theme-toggle button:hover:not(.active) {
     color: var(--text-base);
-}
-
-/* Hero badge light-mode fix */
-html[data-theme="light"] .hero-badge {
-    background: rgba(99, 102, 241, 0.10) !important;
-    color: #0369a1 !important;
 }
 
 /* ── Visual Concepts section light-mode overrides ── */
@@ -433,8 +341,14 @@ html[data-theme="light"] #visual-concepts strong.text-sky-300 {
         transition: none;
     }
 
-    [data-interactive-panel] {
+    [data-interactive-panel],
+    [data-interactive-panel][data-featured] {
         animation: none;
+        transition: none;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
         transition: none;
     }
 

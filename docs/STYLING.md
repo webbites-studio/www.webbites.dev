@@ -6,43 +6,40 @@ The styling system combines Tailwind CSS utility classes with a custom theme sys
 
 ## Tailwind CSS Configuration
 
-### Custom Configuration
+Tailwind is compiled with the CLI. Config lives in `tailwind.config.js`; the input is `src/tailwind.css`; the output `html/css/tailwind.css` is committed and deployed.
 
-Located in `index.html`:
-
-```javascript
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                surface: '#0b1220',
-                panel: '#111827',
-                glow: '#7c3aed',
-                glowSoft: '#60a5fa',
-                textSoft: '#cbd5e1'
-            },
-            fontFamily: {
-                sans: ['Inter', 'system-ui', 'sans-serif']
-            },
-            boxShadow: {
-                glow: '9px 10px 50px 0px #7c3aeda3'
-            }
-        }
-    }
-}
+```bash
+npm install          # once
+npm run build:css    # after changing classes in html/**/*.html or html/js/**/*.js
+npm run watch:css    # while developing
 ```
 
-### Custom Colors
+### Semantic Colors
 
-- `surface`: Dark background base (#0b1220)
-- `panel`: Panel background (#111827)
-- `glow`: Primary glow effect (Purple #7c3aed)
-- `glowSoft`: Secondary glow (Blue #60a5fa)
-- `textSoft`: Soft text color (#cbd5e1)
+Theme-aware colors map to CSS variables, so the same class works in light and dark themes:
+
+| Tailwind color | CSS variable | Use for |
+|---|---|---|
+| `fg` | `--text-base` | Headings, strong text |
+| `fg-subtle` | `--text-subtle` | Quotes, secondary emphasis |
+| `fg-soft` | `--text-soft` | Body text |
+| `fg-muted` | `--text-muted` | Captions, hints |
+| `accent` | `--accent` | Eyebrow labels, highlights |
+| `section` | `--bg-section` | Section backgrounds |
+| `card` | `--bg-card` | Panels / cards |
+| `form` | `--bg-form` | Form container |
+| `field` | `--bg-field` | Inputs, selects, textareas |
+| `chip` | `--bg-chip` | Badges, pills |
+| `nav` | `--bg-nav` | Nav and footer |
+| `line` | `--border-card` | Borders |
+
+Example: `<p class="text-fg-soft">`, `<div class="bg-card border border-line">`. Don't use `text-white` or `bg-slate-*` for themed content, and don't add `!important` light-mode overrides. Opacity modifiers (`bg-card/50`) don't work with variable colors.
 
 ### Typography
 
-**Font Stack**: Inter → System UI → Sans-serif fallback
+**Font Stack**: Inter Variable (self-hosted in `html/fonts/`) → System UI → Sans-serif fallback
+
+Keep wide uppercase tracking (`uppercase tracking-[0.2em]`) for small eyebrow labels only; buttons, form labels, and captions use normal case.
 
 ## Theme System
 
@@ -97,7 +94,7 @@ html[data-theme="light"] {
 
 ### Using Theme Variables
 
-Apply theme variables in your CSS:
+Prefer the semantic Tailwind colors above. In custom CSS, use the variables directly:
 
 ```css
 .my-component {
@@ -105,14 +102,6 @@ Apply theme variables in your CSS:
     color: var(--text-base);
     border: 1px solid var(--border-card);
 }
-```
-
-Or in HTML with inline styles:
-
-```html
-<div style="background:var(--bg-card); color:var(--text-base)">
-    Content
-</div>
 ```
 
 ## Animation System
@@ -138,11 +127,9 @@ Creates a subtle, organic glow effect:
 }
 ```
 
-**Usage:**
-```css
-.glowing-element {
-    animation: glowFlicker 8s ease-in-out infinite;
-}
+**Usage:** reserved for highlighted panels via `data-featured`:
+```html
+<div data-interactive-panel data-featured class="rounded-3xl bg-card p-8">...</div>
 ```
 
 ### Stagger Reveal Animation
@@ -183,20 +170,25 @@ Cards and panels with hover effects:
     position: relative;
     isolation: isolate;
     border: 1px solid var(--border-card);
+    box-shadow: var(--panel-shadow);
     transition: transform 0.3s ease, background-color 0.35s, 
                 border-color 0.35s, box-shadow 0.35s;
-    animation: glowFlicker 8s ease-in-out infinite;
     will-change: transform;
 }
 
 [data-interactive-panel]:hover {
     transform: scale(1.02);
 }
+
+/* Glow only on highlighted panels (dark theme) */
+[data-interactive-panel][data-featured] {
+    animation: glowFlicker 8s ease-in-out infinite;
+}
 ```
 
 **HTML Usage:**
 ```html
-<div data-interactive-panel class="hero-panel">
+<div data-interactive-panel class="rounded-3xl bg-card p-8">
     Panel content
 </div>
 ```
@@ -289,7 +281,7 @@ nav {
 
 **Glass Panels:**
 ```html
-<div class="bg-slate-900/90 backdrop-blur-xl border border-slate-700 
+<div class="bg-card backdrop-blur-xl border border-line 
             rounded-2xl p-8">
     Content
 </div>
@@ -299,12 +291,12 @@ nav {
 ```html
 <!-- Hero heading -->
 <h1 class="text-4xl md:text-6xl font-semibold tracking-tight 
-           text-white leading-tight">
+           text-fg leading-tight">
     Heading
 </h1>
 
 <!-- Body text -->
-<p class="text-slate-300 text-base md:text-lg leading-8">
+<p class="text-fg-soft text-base md:text-lg leading-8">
     Body text
 </p>
 ```
@@ -313,21 +305,15 @@ nav {
 
 ### Changing Colors
 
-1. **Update Tailwind Config** (in `index.html`):
-```javascript
-colors: {
-    glow: '#your-color',  // Change primary glow
-    glowSoft: '#your-color'  // Change secondary
-}
-```
-
-2. **Update Theme Variables** (in `styles.css`):
+1. **Update Theme Variables** (in `styles.css`) for both `:root` and `html[data-theme="light"]`:
 ```css
 :root {
-    --bg-panel: rgba(your, values, here, 0.88);
+    --accent: #your-color;
     /* Update other variables */
 }
 ```
+
+2. **Add a new semantic color** in `tailwind.config.js` (`colors: { name: 'var(--your-var)' }`) and rebuild with `npm run build:css`.
 
 ### Adding New Animations
 
@@ -348,10 +334,10 @@ colors: {
 
 ### Extending Tailwind
 
-Add to the config in `index.html`:
+Add to `tailwind.config.js`, then run `npm run build:css`:
 
 ```javascript
-tailwind.config = {
+module.exports = {
     theme: {
         extend: {
             // Add custom spacing

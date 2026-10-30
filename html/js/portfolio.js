@@ -24,7 +24,7 @@ const portfolioItems = [
         href: 'https://raisasewing1.webbites.dev',
         image: 'images/portfolio/raisasewing1.jpg',
         title: 'Sewing, alterations, and custom accessories studio',
-        category: 'Portfolio & Sevice Showcase',
+        category: 'Portfolio & Service Showcase',
         description: 'A minimalist, multi-section site for a professional seamstress to showcase her background, service offerings, work gallery, client testimonials, and booking information.'
     },
     {
@@ -64,22 +64,24 @@ const portfolioItems = [
     }
 ];
 
-// Function to generate portfolio items
+// Replaces the static fallback cards in #portfolio-container with a random selection.
+// Must run before stagger-load.js so the new cards get stagger indexes.
 function generatePortfolio() {
     const container = document.getElementById('portfolio-container');
-    // Select 3 random items from the portfolioItems array
+    if (!container) return;
     const selectedItems = portfolioItems.sort(() => 0.5 - Math.random()).slice(0, 3);
+    container.replaceChildren();
     selectedItems.forEach(item => {
         const portfolioItem = document.createElement('div');
-        portfolioItem.className = 'overflow-hidden rounded-3xl bg-slate-900/80';
+        portfolioItem.className = 'overflow-hidden rounded-3xl bg-card';
         portfolioItem.setAttribute('data-interactive-panel', '');
         portfolioItem.innerHTML = `
             <a href="${item.href}" target="_blank" rel="noopener noreferrer">
             <img src="${item.image}" alt="${item.title}" width="500" height="288" loading="lazy" decoding="async" class="h-72 w-full object-cover" />
             <div class="p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-sky-300 mb-2">${item.category}</p>
-                <h3 class="text-xl font-semibold text-white">${item.title}</h3>
-                <p class="mt-3 text-slate-400 text-sm leading-6">${item.description}</p>
+                <p class="text-xs uppercase tracking-[0.2em] text-accent mb-2">${item.category}</p>
+                <h3 class="text-xl font-semibold text-fg">${item.title}</h3>
+                <p class="mt-3 text-fg-soft text-sm leading-6">${item.description}</p>
             </div>
             </a>
         `;
@@ -87,5 +89,4 @@ function generatePortfolio() {
     });
 }
 
-// Call the function to generate portfolio items
 generatePortfolio();
