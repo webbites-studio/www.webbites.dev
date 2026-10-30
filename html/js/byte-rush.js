@@ -18,8 +18,6 @@
     var markersLayer = dialog.querySelector('[data-byte-lane-markers]');
     var player = dialog.querySelector('[data-byte-player]');
     var ns = 'http://www.w3.org/2000/svg';
-    var clickCount = 0;
-    var clickTimer = 0;
     var raf = 0;
     var lastFrame = 0;
     var elapsed = 0;
@@ -204,7 +202,7 @@
     }
 
     function positionEntity(entity) {
-        var depth = Math.pow(Math.min(1, entity.z), 1.5);
+        var depth = Math.pow(entity.z, 1.5);
         var x = 180 + (entity.lane - 1) * (16 + depth * 80);
         var y = 72 + depth * 340;
         var scale = 0.22 + depth * 0.82;
@@ -292,16 +290,7 @@
         setOverlay('Byte Rush', 'Switch lanes. Dodge the bugs. Grab the bytes.', 'Start run', 'Start Byte Rush');
     }
 
-    trigger.addEventListener('click', function () {
-        clickCount += 1;
-        window.clearTimeout(clickTimer);
-        if (clickCount >= 5) {
-            clickCount = 0;
-            openGame();
-        } else {
-            clickTimer = window.setTimeout(function () { clickCount = 0; }, 1400);
-        }
-    });
+    trigger.addEventListener('click', openGame);
 
     closeButton.addEventListener('click', function () { dialog.close(); });
     startButton.addEventListener('click', function () {
