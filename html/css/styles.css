@@ -1016,7 +1016,8 @@ html[data-theme="light"] .pw-sparks {
 }
 
 /* ── Byte Rush footer easter egg ── */
-.byte-rush-trigger {
+.byte-rush-trigger,
+.sum-run-trigger {
     display: inline-grid;
     place-items: center;
     width: 1.25rem;
@@ -1032,7 +1033,9 @@ html[data-theme="light"] .pw-sparks {
 }
 
 .byte-rush-trigger:hover,
-.byte-rush-trigger:focus-visible {
+.byte-rush-trigger:focus-visible,
+.sum-run-trigger:hover,
+.sum-run-trigger:focus-visible {
     color: var(--accent);
     opacity: 1;
 }
@@ -1228,11 +1231,519 @@ html[data-theme="light"] .pw-sparks {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .byte-rush-dialog *,
     .byte-rush-trigger {
         scroll-behavior: auto;
         transition: none;
         animation: none;
+    }
+}
+
+/* ── Sum Knight Run footer easter egg ── */
+.sum-run-dialog {
+    width: min(94vw, 440px);
+    max-width: none;
+    max-height: min(96dvh, 820px);
+    padding: 0;
+    overflow: auto;
+    border: 1px solid #3b3480;
+    border-radius: 1.5rem;
+    background: #0b1022;
+    color: #e2e8f0;
+    box-shadow: 0 30px 80px rgba(76, 29, 149, .45);
+}
+
+.sum-run-dialog::backdrop {
+    background: rgba(2, 6, 23, .78);
+    backdrop-filter: blur(4px);
+}
+
+.sum-run-shell {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    padding: 1rem;
+}
+
+.sum-run-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.sum-run-kicker {
+    font-size: .65rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #a78bfa;
+}
+
+.sum-run-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.sum-run-close {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 999px;
+    border: 1px solid #3b3480;
+    color: #e2e8f0;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.sum-run-hud {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .4rem;
+}
+
+.sum-run-stats {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: .4rem;
+    align-items: start;
+}
+
+.sum-run-hud div,
+.sum-run-stats>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .35rem .5rem;
+    border-radius: .75rem;
+    background: #141a38;
+}
+
+.sum-run-hud span,
+.sum-run-stats span {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #94a3b8;
+}
+
+.sum-run-hud strong {
+    font-size: 1.05rem;
+    font-variant-numeric: tabular-nums;
+    transition: color .3s ease;
+}
+
+.sum-run-hud strong.is-goal {
+    color: #4ade80;
+}
+
+[data-sr-lives] {
+    color: #fb7185;
+    letter-spacing: .1em;
+}
+
+.sum-run-progress {
+    height: 4px;
+    border-radius: 4px;
+    background: #1e2550;
+    overflow: hidden;
+}
+
+.sum-run-progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #6366f1, #f472b6);
+    transition: width .3s ease;
+}
+
+.sum-run-stage {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.sum-run-stage.is-shaking {
+    animation: srShake .35s ease;
+}
+
+.sum-run-track {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.sr-lane-hl {
+    fill: #a78bfa;
+    opacity: .06;
+    transition: opacity .15s ease, fill .15s ease;
+}
+
+.sr-lane-hl.is-active {
+    opacity: .22;
+}
+
+.sr-lane-hl.is-warn {
+    fill: #ef4444;
+    opacity: .55;
+    animation: srBlink .2s steps(2) 3;
+}
+
+.sr-item text {
+    text-anchor: middle;
+    font: 700 13px/1 Inter, system-ui, sans-serif;
+    fill: #fff;
+}
+
+.sr-num.is-pos rect {
+    fill: #059669;
+    stroke: #6ee7b7;
+    stroke-width: 1.5;
+}
+
+.sr-num.is-neg rect {
+    fill: #b91c1c;
+    stroke: #fca5a5;
+    stroke-width: 1.5;
+}
+
+.sr-op path {
+    fill: #6d28d9;
+    stroke: #c4b5fd;
+    stroke-width: 1.5;
+}
+
+.sr-op.is-adv path {
+    fill: #b45309;
+    stroke: #fcd34d;
+}
+
+.sr-op text {
+    font-size: 12px;
+}
+
+.sr-item.is-taken {
+    animation: srTaken .3s ease forwards;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.sr-knight-body {
+    animation: srMarch .5s ease-in-out infinite alternate;
+}
+
+.sr-knight-charger .sr-knight-body {
+    animation-duration: .22s;
+}
+
+.sum-run-hero .sr-hero-body {
+    animation: srBob .45s ease-in-out infinite alternate;
+}
+
+.sr-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: srBlinkEyes 4s infinite;
+}
+
+.sr-hero-pi {
+    text-anchor: middle;
+    font: 700 10px/1 Inter, system-ui, sans-serif;
+    fill: #fde047;
+}
+
+.sr-wand {
+    transform-box: fill-box;
+    transform-origin: 0% 100%;
+}
+
+.sr-mouth,
+.sr-eyes-x {
+    display: none;
+}
+
+.sum-run-hero[data-mood="idle"] .sr-mouth-idle,
+.sum-run-hero[data-mood="happy"] .sr-mouth-happy,
+.sum-run-hero[data-mood="sad"] .sr-mouth-sad,
+.sum-run-hero[data-mood="hurt"] .sr-mouth-hurt,
+.sum-run-hero[data-mood="hurt"] .sr-eyes-x {
+    display: inline;
+}
+
+.sum-run-hero[data-mood="hurt"] .sr-eyes {
+    display: none;
+}
+
+.sum-run-hero[data-mood="happy"] .sr-wand {
+    animation: srWave .25s ease-in-out 2 alternate;
+}
+
+.sr-float {
+    text-anchor: middle;
+    font: 800 16px/1 Inter, system-ui, sans-serif;
+    paint-order: stroke;
+    stroke: #0b1022;
+    stroke-width: 3px;
+    animation: srFloat .9s ease-out forwards;
+}
+
+.sr-float.is-pos {
+    fill: #4ade80;
+}
+
+.sr-float.is-neg {
+    fill: #f87171;
+}
+
+.sum-run-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+    text-align: center;
+    background: rgba(7, 11, 24, .86);
+    backdrop-filter: blur(3px);
+}
+
+.sum-run-overlay[hidden] {
+    display: none;
+}
+
+.sum-run-overlay-label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #c4b5fd;
+}
+
+.sum-run-overlay-message {
+    margin-top: .35rem;
+    font-size: .85rem;
+    color: #cbd5e1;
+}
+
+.sum-run-actions {
+    margin-top: .8rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+}
+
+.sum-run-levels {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: .35rem;
+    width: 100%;
+}
+
+.sum-run-level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .3rem 0;
+    border-radius: .6rem;
+    border: 1px solid #3b3480;
+    background: #141a38;
+    color: #e2e8f0;
+}
+
+.sum-run-level small {
+    font-size: .55rem;
+    color: #fde047;
+}
+
+.sum-run-level.is-selected {
+    border-color: #f472b6;
+    box-shadow: 0 0 0 2px rgba(244, 114, 182, .35);
+}
+
+.sum-run-level:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.sum-run-info {
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+    font-size: .75rem;
+    color: #cbd5e1;
+}
+
+.sum-run-info strong {
+    color: #fff;
+    font-size: .9rem;
+}
+
+.sum-run-info b {
+    color: #4ade80;
+}
+
+.sum-run-settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1rem;
+    justify-content: center;
+    font-size: .75rem;
+}
+
+.sum-run-settings input {
+    accent-color: #8b5cf6;
+    margin-right: .25rem;
+}
+
+.sum-run-btn {
+    min-width: 10rem;
+    padding: .55rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid #3b3480;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.sum-run-btn.is-primary {
+    border: 0;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    color: #fff;
+}
+
+.sum-run-hint {
+    font-size: .65rem;
+    color: #94a3b8;
+}
+
+.sum-run-stars {
+    font-size: 1.6rem;
+    color: #fde047;
+    letter-spacing: .15em;
+}
+
+.sum-run-stars span {
+    color: #334155;
+}
+
+.sum-run-log {
+    font-size: .72rem;
+    font-variant-numeric: tabular-nums;
+    min-height: 3.6rem;
+    padding: .3rem .5rem;
+}
+
+.sum-run-log li.is-pos {
+    color: #4ade80;
+}
+
+.sum-run-log li.is-neg {
+    color: #f87171;
+}
+
+.sum-run-log li:not(:first-child) {
+    opacity: .55;
+}
+
+.sum-run-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5rem;
+}
+
+.sum-run-controls button {
+    padding: .65rem;
+    border-radius: .9rem;
+    background: #141a38;
+    border: 1px solid #3b3480;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.sum-run-close:focus-visible,
+.sum-run-controls button:focus-visible,
+.sum-run-btn:focus-visible,
+.sum-run-level:focus-visible,
+.sum-run-trigger:focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 3px;
+}
+
+@keyframes srBob {
+    to {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes srMarch {
+    to {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes srBlinkEyes {
+
+    0%,
+    94%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    97% {
+        transform: scaleY(.1);
+    }
+}
+
+@keyframes srWave {
+    to {
+        transform: rotate(-25deg);
+    }
+}
+
+@keyframes srTaken {
+    to {
+        opacity: 0;
+        transform: scale(1.6);
+    }
+}
+
+@keyframes srFloat {
+    to {
+        opacity: 0;
+        transform: translateY(-34px);
+    }
+}
+
+@keyframes srBlink {
+    50% {
+        opacity: .15;
+    }
+}
+
+@keyframes srShake {
+    20% {
+        transform: translateX(-6px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-3px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sum-run-dialog * {
+        transition: none;
+        animation: none;
+    }
+
+    .sr-item.is-taken,
+    .sr-float {
+        opacity: 0;
     }
 }
 
