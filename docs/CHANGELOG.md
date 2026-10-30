@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Cost guide page at `/website-cost-guide/` (`html/website-cost-guide/index.html`) with FAQ schema, linked from homepage nav and footer and listed in `sitemap.xml`
+
 ### Planned
 - Add contact form functionality
 - Implement portfolio/case studies section
