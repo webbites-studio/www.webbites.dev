@@ -1,7 +1,5 @@
 aed
-aeda
 Bluehost
-cbd
 certbot
 cloudflare
 CTAs
@@ -31,6 +29,7 @@ SEO
 sitemap
 ssltls
 stakeholders
+textareas
 timestamped
 toml
 TTI
@@ -42,6 +41,8 @@ WCAG
 webbites
 webp
 website
+wght
+woff
 workflows
 xzf
 yml
