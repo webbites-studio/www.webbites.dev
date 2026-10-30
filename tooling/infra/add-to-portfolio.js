@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright-core');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '..', '..');
 const PORTFOLIO_JS = path.join(ROOT, 'html', 'js', 'portfolio.js');
 const IMG_DIR = path.join(ROOT, 'html', 'images', 'portfolio');
 
