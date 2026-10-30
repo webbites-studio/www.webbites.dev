@@ -244,20 +244,35 @@
                     </ul>
                 </div>
                 <div class="stagger">
-                    <figure data-interactive-panel data-featured class="overflow-hidden rounded-3xl bg-card">
-                        <div class="flex items-center gap-2 border-b border-line px-4 py-3" aria-hidden="true">
-                            <span class="h-3 w-3 rounded-full bg-rose-400"></span>
-                            <span class="h-3 w-3 rounded-full bg-amber-400"></span>
-                            <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
-                            <span
-                                class="ml-3 truncate rounded-full bg-chip px-3 py-1 text-xs text-fg-muted">raisasewing1.webbites.dev</span>
+                    <div class="hero-showcase" data-hero-showcase>
+                        <div class="hero-tilt">
+                            <figure data-interactive-panel data-featured class="overflow-hidden rounded-3xl bg-card">
+                                <div class="flex items-center gap-2 border-b border-line px-4 py-3" aria-hidden="true">
+                                    <span class="h-3 w-3 rounded-full bg-rose-400"></span>
+                                    <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+                                    <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                                    <span data-hero-host
+                                        class="ml-3 flex-1 truncate rounded-full bg-chip px-3 py-1 text-xs text-fg-muted">raisasewing2.webbites.dev</span>
+                                </div>
+                                <a data-hero-link href="https://raisasewing2.webbites.dev" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <img data-hero-img src="images/portfolio/raisasewing2-640.jpg"
+                                        srcset="images/portfolio/raisasewing2-640.jpg 640w, images/portfolio/raisasewing2.jpg 1280w"
+                                        sizes="(min-width: 1024px) 560px, 92vw"
+                                        alt="Sewing and tailoring service portfolio: website designed by WebBites"
+                                        width="1280" height="800" fetchpriority="high" decoding="async"
+                                        class="block h-auto w-full" />
+                                </a>
+                                <figcaption class="py-3 pl-5 pr-[30%] text-sm text-fg-soft">Recent build:
+                                    <span data-hero-title class="text-fg">Sewing and tailoring service portfolio</span>
+                                </figcaption>
+                            </figure>
+                            <div class="hero-phone" aria-hidden="true">
+                                <img data-hero-mobile src="images/portfolio/raisasewing2-mobile.jpg" alt="" width="390"
+                                    height="844" decoding="async" />
+                            </div>
                         </div>
-                        <img src="images/portfolio/raisasewing1.jpg"
-                            alt="Sewing and tailoring studio website designed by WebBites" width="500" height="288"
-                            fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
-                        <figcaption class="px-5 py-3 text-sm text-fg-soft">Recent build: sewing &amp; tailoring studio
-                        </figcaption>
-                    </figure>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1074,24 +1089,57 @@
                         layouts, strong branding, and responsive UX.</p>
                 </div>
                 <div class="stagger grid gap-8 md:grid-cols-3" id="portfolio-container">
-                    <div data-interactive-panel class="overflow-hidden rounded-3xl bg-card">
-                        <a href="https://quietmusic1.webbites.dev" target="_blank" rel="noopener noreferrer">
-                            <img src="images/portfolio/quietmusic1.jpg" alt="Modern Musician Portfolio" width="500"
-                                height="288" loading="lazy" decoding="async" class="h-72 w-full object-cover" />
-                            <div class="p-6">
+                    <article data-interactive-panel class="site-card overflow-hidden rounded-3xl bg-card">
+                        <a href="https://quietmusic1.webbites.dev" target="_blank" rel="noopener noreferrer"
+                            class="group flex h-full flex-col">
+                            <div class="site-card-stage p-5">
+                                <div class="site-frame">
+                                    <div class="site-frame-bar flex items-center gap-1.5 px-3 py-2" aria-hidden="true">
+                                        <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                                        <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                                        <span
+                                            class="ml-2 flex-1 truncate rounded-full bg-chip px-3 py-0.5 text-[11px] text-fg-muted">quietmusic1.webbites.dev</span>
+                                    </div>
+                                    <img src="images/portfolio/quietmusic1-640.jpg"
+                                        srcset="images/portfolio/quietmusic1-640.jpg 640w, images/portfolio/quietmusic1.jpg 1280w"
+                                        sizes="(min-width: 768px) 340px, 92vw" alt="Modern Musician Portfolio"
+                                        width="1280" height="800" loading="lazy" decoding="async"
+                                        class="block h-auto w-full" />
+                                </div>
+                            </div>
+                            <div class="flex flex-1 flex-col px-6 pb-6 pt-1">
                                 <p class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Web Design</p>
                                 <h3 class="text-xl font-semibold text-fg">Modern Musician Portfolio</h3>
                                 <p class="mt-3 text-fg-soft text-sm leading-6">A clear, easy-to-use site that lists
                                     music services and booking information for jazz musicians.</p>
+                                <span
+                                    class="mt-auto pt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">Visit
+                                    live site <span aria-hidden="true"
+                                        class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span></span>
                             </div>
                         </a>
-                    </div>
-                    <div data-interactive-panel class="overflow-hidden rounded-3xl bg-card">
-                        <a href="https://raisasewing3.webbites.dev" target="_blank" rel="noopener noreferrer">
-                            <img src="images/portfolio/raisasewing3.jpg"
-                                alt="Professional sewing, tailoring, and accessory design" width="500" height="288"
-                                loading="lazy" decoding="async" class="h-72 w-full object-cover" />
-                            <div class="p-6">
+                    </article>
+                    <article data-interactive-panel class="site-card overflow-hidden rounded-3xl bg-card">
+                        <a href="https://raisasewing3.webbites.dev" target="_blank" rel="noopener noreferrer"
+                            class="group flex h-full flex-col">
+                            <div class="site-card-stage p-5">
+                                <div class="site-frame">
+                                    <div class="site-frame-bar flex items-center gap-1.5 px-3 py-2" aria-hidden="true">
+                                        <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                                        <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                                        <span
+                                            class="ml-2 flex-1 truncate rounded-full bg-chip px-3 py-0.5 text-[11px] text-fg-muted">raisasewing3.webbites.dev</span>
+                                    </div>
+                                    <img src="images/portfolio/raisasewing3-640.jpg"
+                                        srcset="images/portfolio/raisasewing3-640.jpg 640w, images/portfolio/raisasewing3.jpg 1280w"
+                                        sizes="(min-width: 768px) 340px, 92vw"
+                                        alt="Professional sewing, tailoring, and accessory design" width="1280"
+                                        height="800" loading="lazy" decoding="async" class="block h-auto w-full" />
+                                </div>
+                            </div>
+                            <div class="flex flex-1 flex-col px-6 pb-6 pt-1">
                                 <p class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Portfolio &amp; Service
                                     Showcase</p>
                                 <h3 class="text-xl font-semibold text-fg">Professional sewing, tailoring, and accessory
@@ -1099,23 +1147,45 @@
                                 <p class="mt-3 text-fg-soft text-sm leading-6">A bold, high-contrast, asymmetric website
                                     for a seamstress to display her background, service offerings, work gallery, and
                                     contact information.</p>
+                                <span
+                                    class="mt-auto pt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">Visit
+                                    live site <span aria-hidden="true"
+                                        class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span></span>
                             </div>
                         </a>
-                    </div>
-                    <div data-interactive-panel class="overflow-hidden rounded-3xl bg-card">
-                        <a href="https://www.inspiremeeventplanner.com" target="_blank" rel="noopener noreferrer">
-                            <img src="images/portfolio/inspiremeeventplanner.jpg" alt="Luxury event planning service"
-                                width="500" height="288" loading="lazy" decoding="async"
-                                class="h-72 w-full object-cover" />
-                            <div class="p-6">
+                    </article>
+                    <article data-interactive-panel class="site-card overflow-hidden rounded-3xl bg-card">
+                        <a href="https://www.inspiremeeventplanner.com" target="_blank" rel="noopener noreferrer"
+                            class="group flex h-full flex-col">
+                            <div class="site-card-stage p-5">
+                                <div class="site-frame">
+                                    <div class="site-frame-bar flex items-center gap-1.5 px-3 py-2" aria-hidden="true">
+                                        <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                                        <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                                        <span
+                                            class="ml-2 flex-1 truncate rounded-full bg-chip px-3 py-0.5 text-[11px] text-fg-muted">inspiremeeventplanner.com</span>
+                                    </div>
+                                    <img src="images/portfolio/inspiremeeventplanner-640.jpg"
+                                        srcset="images/portfolio/inspiremeeventplanner-640.jpg 640w, images/portfolio/inspiremeeventplanner.jpg 1280w"
+                                        sizes="(min-width: 768px) 340px, 92vw" alt="Luxury event planning service"
+                                        width="1280" height="800" loading="lazy" decoding="async"
+                                        class="block h-auto w-full" />
+                                </div>
+                            </div>
+                            <div class="flex flex-1 flex-col px-6 pb-6 pt-1">
                                 <p class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Event Planning</p>
                                 <h3 class="text-xl font-semibold text-fg">Luxury event planning service</h3>
                                 <p class="mt-3 text-fg-soft text-sm leading-6">A high-end site showcasing event
                                     planning services, featuring a project portfolio, client testimonials, and a
                                     contact form for inquiries.</p>
+                                <span
+                                    class="mt-auto pt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">Visit
+                                    live site <span aria-hidden="true"
+                                        class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span></span>
                             </div>
                         </a>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
