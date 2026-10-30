@@ -5,24 +5,30 @@
 ### Directory Organization
 
 ```
+package.json               # Build scripts (Tailwind CLI, font copy)
+tailwind.config.js         # Tailwind config (semantic colors -> CSS variables)
+src/tailwind.css           # Tailwind input (not deployed)
 html/
 ├── index.html              # Main HTML document
 ├── website-cost-guide/
 │   └── index.html         # Cost guide page (served at /website-cost-guide/)
+├── privacy/
+│   └── index.html         # Privacy policy (served at /privacy/)
 ├── css/
+│   ├── tailwind.css       # Compiled Tailwind output (generated, committed)
 │   └── styles.css         # Custom styles and theme system
+├── fonts/                 # Self-hosted Inter variable font
 ├── images/                # Image assets and graphics
-└── scripts/
-    └── main.js           # Client-side JavaScript
+└── js/                    # Client-side JavaScript
 ```
 
 ### Technology Stack
 
 #### Frontend Framework
-- **Tailwind CSS v3.x**: Delivered via CDN for rapid development
-  - Custom configuration embedded in HTML
-  - Extended with custom colors and utilities
-  - No build process required
+- **Tailwind CSS v3.x**: Compiled with the Tailwind CLI (`npm run build:css`)
+  - Config in `tailwind.config.js`, output committed to `html/css/tailwind.css`
+  - Semantic colors (`fg`, `accent`, `card`, `line`, ...) resolve to CSS variables
+  - Deployment still serves `html/` as plain static files
 
 #### Custom CSS Architecture
 - **CSS Custom Properties**: Theme-aware design tokens
@@ -53,13 +59,9 @@ html/
     <meta property="og:title" content="...">
     <meta property="og:description" content="...">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = { ... }
-    </script>
+    <!-- Self-hosted font + compiled Tailwind -->
+    <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/tailwind.css">
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css">
@@ -69,8 +71,8 @@ html/
 ### Navigation Structure
 
 - **Sticky Navigation**: Fixed at top with backdrop blur
-- **Theme Toggle**: Three-mode switcher (Light/System/Dark)
-- **Responsive Menu**: Hidden on mobile, full navigation on desktop
+- **Theme Toggle**: Three-mode switcher (Light/System/Dark), `.theme-toggle` (desktop nav and mobile menu)
+- **Responsive Menu**: Desktop links on `md+`; hamburger `#menu-toggle` opens `#mobile-menu` on small screens
 - **Smooth Scrolling**: Anchor links to page sections
 
 ### Content Sections
@@ -188,7 +190,7 @@ html[data-theme="light"] {
 
 ### Optimization Techniques
 
-- **CDN Delivery**: Tailwind CSS via CDN for caching
+- **Precompiled CSS**: Only the Tailwind classes actually used are shipped (no runtime CDN script)
 - **CSS Variables**: Runtime theme switching without reloads
 - **Minimal JavaScript**: No heavy frameworks
 - **Observer Pattern**: Efficient scroll handling

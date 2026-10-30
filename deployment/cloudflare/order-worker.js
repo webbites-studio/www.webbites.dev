@@ -32,7 +32,9 @@ export default {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    content: `🔔 **New Message from ${data.name}**\nContact: ${data.contact}\nProject Type: ${data.projectType}\nMessage: ${data.message}`
+                    content: `🔔 **New Message from ${data.name}**\nContact: ${data.contact}\nPackage: ${data.package}\nProject Type: ${data.projectType}\nMessage: ${data.message}`,
+                    // Stop form input from triggering @everyone / role / user pings
+                    allowed_mentions: { parse: [] }
                 }),
             });
 

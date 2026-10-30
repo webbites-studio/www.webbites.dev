@@ -54,7 +54,7 @@ www.webbites.dev/
 
 ### Technical Stack
 - **HTML5**: Semantic markup with accessibility considerations
-- **Tailwind CSS**: Utility-first CSS framework (via CDN)
+- **Tailwind CSS**: Utility-first CSS framework (compiled with `npm run build:css`)
 - **Custom CSS**: Theme system with CSS custom properties
 - **Vanilla JavaScript**: No dependencies, pure JS for functionality
 
