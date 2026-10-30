@@ -1,6 +1,7 @@
 {
     "chat.tools.terminal.autoApprove": {
         "npx --yes http-server": true,
-        "npx --no-install playwright": true
+        "npx --no-install playwright": true,
+        "npm run build:css": true
     }
 }

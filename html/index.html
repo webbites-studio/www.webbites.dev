@@ -1391,7 +1391,8 @@
         <div class="max-w-6xl mx-auto px-6">
             <div
                 class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-sm text-fg-soft stagger">
-                <div id="footer-copyright">© 2026 WebBites. All Rights Reserved.</div>
+                <div id="footer-copyright">© 2026 WebBites. All Rights Reserved.<button type="button"
+                        class="byte-rush-trigger" aria-label="Open the hidden Byte Rush game">·</button></div>
 
                 <nav aria-label="Footer" class="flex flex-wrap justify-center gap-6">
                     <a href="#pricing" class="transition hover:text-fg">Pricing</a>
@@ -1415,6 +1416,58 @@
         </div>
     </footer>
 
+    <dialog class="byte-rush-dialog" aria-labelledby="byte-rush-title">
+        <div class="byte-rush-shell">
+            <header class="byte-rush-header">
+                <div>
+                    <p class="byte-rush-kicker">A tiny WebBites arcade game</p>
+                    <h2 id="byte-rush-title">Byte Rush</h2>
+                </div>
+                <button class="byte-rush-close" type="button" aria-label="Close Byte Rush">×</button>
+            </header>
+
+            <div class="byte-rush-scoreboard" aria-label="Game scores">
+                <div><span>Score</span><strong data-byte-score>0</strong></div>
+                <div><span>Best</span><strong data-byte-best>0</strong></div>
+                <div><span>Combo</span><strong data-byte-combo>×1</strong></div>
+            </div>
+
+            <div class="byte-rush-stage">
+                <svg class="byte-rush-track" viewBox="0 0 360 440" role="img"
+                    aria-label="Three-lane perspective track. Dodge red bugs and collect cyan bytes.">
+                    <rect width="360" height="440" fill="#070b18" />
+                    <circle cx="180" cy="112" r="95" fill="#17265a" opacity=".42" />
+                    <path d="M145 72h70L330 430H30z" fill="#0c142b" stroke="#5262a8"
+                        stroke-opacity=".55" />
+                    <path d="M145 72 30 430M215 72 330 430" stroke="#7180e8" stroke-opacity=".38" />
+                    <path d="M168 72 130 430M192 72 230 430" stroke="#7180e8" stroke-opacity=".23"
+                        stroke-dasharray="8 12" />
+                    <g data-byte-lane-markers></g>
+                    <g data-byte-entities></g>
+                    <g class="byte-rush-player" data-byte-player transform="translate(180 372)">
+                        <path d="M0-20 18 13 0 7-18 13z" fill="#67e8f9" stroke="#d8fbff" stroke-width="2" />
+                        <path d="M0 11 7 22 14 11z" transform="translate(-7 0)" fill="#818cf8" />
+                    </g>
+                    <path d="M30 430h300" stroke="#67e8f9" stroke-opacity=".55" />
+                </svg>
+
+                <div class="byte-rush-overlay" data-byte-overlay>
+                    <p class="byte-rush-overlay-label" data-byte-overlay-label>Ready?</p>
+                    <p class="byte-rush-overlay-message" data-byte-overlay-message>Switch lanes. Dodge the bugs. Grab the bytes.</p>
+                    <button class="byte-rush-start" type="button" data-byte-action>Start run</button>
+                    <p class="byte-rush-hint">← → or A / D · Swipe or use the buttons</p>
+                </div>
+                <p class="byte-rush-live" data-byte-live aria-live="polite"></p>
+            </div>
+
+            <div class="byte-rush-controls">
+                <button type="button" data-byte-move="-1" aria-label="Move left">←</button>
+                <button type="button" data-byte-pause aria-label="Pause game">Pause</button>
+                <button type="button" data-byte-move="1" aria-label="Move right">→</button>
+            </div>
+        </div>
+    </dialog>
+
     <script src="js/portfolio.js"></script>
     <script src="js/stagger-load.js"></script>
     <script src="js/process-3d.js"></script>
@@ -1422,6 +1475,7 @@
     <script src="js/order-widget.js"></script>
     <script src="js/contact-widget.js"></script>
     <script src="js/rate-switch.js"></script>
+    <script src="js/byte-rush.js"></script>
 
 </body>
 
