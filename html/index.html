@@ -1421,7 +1421,8 @@
             <div
                 class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-sm text-fg-soft stagger">
                 <div id="footer-copyright">© 2026 WebBites. All Rights Reserved.<button type="button"
-                        class="byte-rush-trigger" aria-label="Open the hidden Byte Rush game">·</button></div>
+                        class="byte-rush-trigger" aria-label="Open the hidden Byte Rush game">·</button><button
+                        type="button" class="sum-run-trigger" aria-label="Open the hidden Sum Knight Run game">∑</button></div>
 
                 <nav aria-label="Footer" class="flex flex-wrap justify-center gap-6">
                     <a href="#pricing" class="transition hover:text-fg">Pricing</a>
@@ -1497,6 +1498,99 @@
         </div>
     </dialog>
 
+    <dialog class="sum-run-dialog" aria-labelledby="sum-run-title">
+        <div class="sum-run-shell">
+            <header class="sum-run-header">
+                <div>
+                    <p class="sum-run-kicker">Easter egg #2 · Math arcade</p>
+                    <h2 id="sum-run-title">Sum Knight Run</h2>
+                </div>
+                <button class="sum-run-close" type="button" aria-label="Close Sum Knight Run">×</button>
+            </header>
+
+            <div class="sum-run-hud" aria-label="Game status">
+                <div><span>Level</span><strong data-sr-level>1</strong></div>
+                <div><span>Score</span><strong data-sr-score>0</strong></div>
+                <div><span>Goal</span><strong data-sr-goal>0</strong></div>
+                <div><span>Lives</span><strong data-sr-lives>♥♥♥</strong></div>
+            </div>
+            <div class="sum-run-progress" aria-hidden="true"><span data-sr-progress></span></div>
+
+            <div class="sum-run-stage" data-sr-stage>
+                <svg class="sum-run-track" viewBox="0 0 360 440" role="img"
+                    aria-label="Multi-lane track. Collect numbers and math operations, avoid the knights.">
+                    <defs>
+                        <linearGradient id="sr-sky" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#1e1b4b" />
+                            <stop offset="1" stop-color="#070b18" />
+                        </linearGradient>
+                        <linearGradient id="sr-robe" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#a78bfa" />
+                            <stop offset="1" stop-color="#4c1d95" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="360" height="440" fill="url(#sr-sky)" />
+                    <circle cx="180" cy="70" r="90" fill="#4338ca" opacity=".18" />
+                    <g data-sr-road></g>
+                    <g data-sr-stripes></g>
+                    <g data-sr-lane-hl></g>
+                    <g data-sr-entities></g>
+                    <g class="sum-run-hero" data-sr-player data-mood="idle" transform="translate(180 384)">
+                        <g class="sr-hero-body">
+                            <ellipse cy="4" rx="18" ry="5" fill="#000" opacity=".4" />
+                            <path d="M-17 3 0-30 17 3Z" fill="url(#sr-robe)" stroke="#c4b5fd" stroke-width="1" />
+                            <path d="M-6 -4h12" stroke="#fde047" stroke-width="2" stroke-linecap="round" />
+                            <path d="M-12-18Q0-11 12-18l1 4Q0-7-13-14Z" fill="#f472b6" />
+                            <circle cy="-33" r="12" fill="#fde2c4" />
+                            <circle cx="-7.5" cy="-29" r="2.6" fill="#fb7185" opacity=".55" />
+                            <circle cx="7.5" cy="-29" r="2.6" fill="#fb7185" opacity=".55" />
+                            <g class="sr-eyes" fill="#1e1b4b">
+                                <ellipse cx="-4.5" cy="-35" rx="2" ry="2.6" />
+                                <ellipse cx="4.5" cy="-35" rx="2" ry="2.6" />
+                            </g>
+                            <g class="sr-eyes-x" stroke="#1e1b4b" stroke-width="1.6" stroke-linecap="round">
+                                <path d="M-6.5-37l4 4m0-4-4 4M2.5-37l4 4m0-4-4 4" />
+                            </g>
+                            <path class="sr-mouth sr-mouth-idle" d="M-3-28q3 2.5 6 0" fill="none" stroke="#9f1239"
+                                stroke-width="1.5" stroke-linecap="round" />
+                            <path class="sr-mouth sr-mouth-happy" d="M-4.5-29h9q-4.5 6.5-9 0z" fill="#9f1239" />
+                            <path class="sr-mouth sr-mouth-sad" d="M-3-26q3-2.5 6 0" fill="none" stroke="#9f1239"
+                                stroke-width="1.5" stroke-linecap="round" />
+                            <ellipse class="sr-mouth sr-mouth-hurt" cy="-27.5" rx="2" ry="2.6" fill="#9f1239" />
+                            <path d="M-15-41 0-68 15-41Z" fill="#6366f1" stroke="#a5b4fc" stroke-width="1" />
+                            <ellipse cy="-41" rx="17" ry="4" fill="#4f46e5" />
+                            <text class="sr-hero-pi" y="-48">π</text>
+                            <g class="sr-wand">
+                                <path d="M13-12 24-30" stroke="#78350f" stroke-width="2.5" stroke-linecap="round" />
+                                <path d="M24-37l1.8 4.2 4.4.4-3.4 2.9 1 4.4-3.8-2.3-3.8 2.3 1-4.4-3.4-2.9 4.4-.4z"
+                                    fill="#fde047" />
+                            </g>
+                        </g>
+                    </g>
+                    <g data-sr-fx></g>
+                    <path d="M10 440h340" stroke="#a78bfa" stroke-opacity=".5" />
+                </svg>
+
+                <div class="sum-run-overlay" data-sr-overlay>
+                    <div data-sr-panel></div>
+                </div>
+                <p class="sr-only" data-sr-live aria-live="polite"></p>
+            </div>
+
+            <div class="sum-run-stats">
+                <div><span>Numbers</span><strong data-sr-collected>0</strong></div>
+                <div><span>Ops</span><strong data-sr-ops>0</strong></div>
+                <ol class="sum-run-log" data-sr-log aria-label="Recent math"></ol>
+            </div>
+
+            <div class="sum-run-controls">
+                <button type="button" data-sr-move="-1" aria-label="Move left">←</button>
+                <button type="button" data-sr-pause aria-label="Pause game">Pause</button>
+                <button type="button" data-sr-move="1" aria-label="Move right">→</button>
+            </div>
+        </div>
+    </dialog>
+
     <script src="js/portfolio.js"></script>
     <script src="js/stagger-load.js"></script>
     <script src="js/process-3d.js"></script>
@@ -1506,6 +1600,8 @@
     <script src="js/rate-switch.js"></script>
     <script src="js/byte-rush-logic.js"></script>
     <script src="js/byte-rush.js"></script>
+    <script src="js/sum-run-logic.js"></script>
+    <script src="js/sum-run.js"></script>
 
 </body>
 
