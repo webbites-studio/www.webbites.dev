@@ -55,12 +55,23 @@
         animate();
     });
 
+    var landTimer = 0;
+
     captions.forEach(function (caption) {
         caption.addEventListener('mouseenter', function () {
+            clearTimeout(landTimer);
+            stage.classList.remove('is-landing');
             stage.setAttribute('data-active', caption.getAttribute('data-process-step'));
         });
         caption.addEventListener('mouseleave', function () {
+            var wasLaunch = stage.getAttribute('data-active') === '3';
             stage.removeAttribute('data-active');
+            if (wasLaunch) {
+                stage.classList.add('is-landing');
+                landTimer = setTimeout(function () {
+                    stage.classList.remove('is-landing');
+                }, 1200);
+            }
         });
     });
 })();
