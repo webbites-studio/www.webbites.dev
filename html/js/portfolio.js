@@ -162,6 +162,6 @@ const portfolioItems = [
     renderCards(rest.slice(0, 3));
 
     const showcase = document.querySelector('[data-hero-showcase]');
-    addTilt(showcase, showcase && showcase.querySelector('.hero-tilt'), 6, 10);
-    document.querySelectorAll('.site-card').forEach(card => addTilt(card, card.querySelector('.site-frame'), 8, 10));
+    addTilt(showcase, showcase && showcase.querySelector('.hero-tilt'), 10, 18);
+    document.querySelectorAll('.site-card').forEach(card => addTilt(card, card.querySelector('.site-frame'), 20, 30));
 })();

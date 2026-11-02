@@ -148,8 +148,8 @@ html[data-theme="light"] .site-card-stage {
 }
 
 .site-frame {
-    --rx: 4deg;
-    --ry: -6deg;
+    --rx: 6deg;
+    --ry: -10deg;
     position: relative;
     overflow: hidden;
     border-radius: 0.75rem;
@@ -198,12 +198,18 @@ html[data-theme="light"] .site-frame {
 }
 
 .hero-tilt {
-    --rx: 4deg;
-    --ry: -10deg;
+    --rx: 6deg;
+    --ry: -16deg;
     position: relative;
     transform-style: preserve-3d;
     transform: rotateX(var(--rx)) rotateY(var(--ry));
     transition: transform 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* The link wraps the whole mockup; it must pass the 3D context through so the phone keeps its depth. */
+.hero-tilt>a {
+    display: block;
+    transform-style: preserve-3d;
 }
 
 .hero-phone {
