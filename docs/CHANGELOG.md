@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Portfolio screenshots re-captured per site in three sizes (`<slug>.jpg` 1280x800, `<slug>-640.jpg`, `<slug>-mobile.jpg` 390x844)
 
 ### Changed
-- Portfolio cards show screenshots in a browser-chrome frame with pointer-driven 3D tilt and glare (`html/js/portfolio.js`, `.site-card` / `.site-frame` styles)
+- Portfolio cards show screenshots in a browser-chrome frame with a phone mockup beside it, with pointer-driven 3D tilt and glare (`html/js/portfolio.js`, `.site-card` / `.site-tilt` / `.site-frame` / `.site-phone` styles)
 - Hero mockup is a random portfolio site (desktop frame + phone overlay, 3D tilt), distinct from the three cards below
 - 14-day delivery is promised only for the Fast plan; Popular and Best get a delivery date agreed upfront
 - Tailwind CSS is compiled to `html/css/tailwind.css` instead of loaded from the CDN

@@ -113,23 +113,29 @@ const portfolioItems = [
             card.innerHTML = `
                 <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="group flex h-full flex-col">
                     <div class="site-card-stage p-5">
-                        <div class="site-frame">
-                            <div class="site-frame-bar flex items-center gap-1.5 px-3 py-2" aria-hidden="true">
-                                <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-                                <span class="ml-2 flex-1 truncate rounded-full bg-chip px-3 py-0.5 text-[11px] text-fg-muted">${hostOf(item)}</span>
+                        <div class="site-tilt">
+                            <div class="site-frame">
+                                <div class="site-frame-bar flex items-center gap-1.5 px-3 py-2" aria-hidden="true">
+                                    <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                                    <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                                    <span class="ml-2 flex-1 truncate rounded-full bg-chip px-3 py-0.5 text-[11px] text-fg-muted">${hostOf(item)}</span>
+                                </div>
+                                <img src="${IMG_DIR}${item.slug}-640.jpg" srcset="${srcset(item)}" sizes="(min-width: 768px) 340px, 92vw"
+                                    alt="${item.title}" width="1280" height="800" loading="lazy" decoding="async" class="block h-auto w-full" />
+                                </div>
+                                <div class="site-phone" aria-hidden="true">
+                                    <img src="${IMG_DIR}${item.slug}-mobile.jpg" alt="" width="390" height="844" loading="lazy" decoding="async" />
+                                </div>
                             </div>
-                            <img src="${IMG_DIR}${item.slug}-640.jpg" srcset="${srcset(item)}" sizes="(min-width: 768px) 340px, 92vw"
-                                alt="${item.title}" width="1280" height="800" loading="lazy" decoding="async" class="block h-auto w-full" />
                         </div>
-                    </div>
-                    <div class="flex flex-1 flex-col px-6 pb-6 pt-1">
-                        <p class="text-xs uppercase tracking-[0.2em] text-accent mb-2">${item.category}</p>
-                        <h3 class="text-xl font-semibold text-fg">${item.title}</h3>
-                        <p class="mt-3 text-fg-soft text-sm leading-6">${item.description}</p>
-                        <span class="mt-auto pt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">Visit live site
-                            <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span></span>
+                        <div class="flex flex-1 flex-col px-6 pb-6 pt-1">
+                            <p class="text-xs uppercase tracking-[0.2em] text-accent mb-2">${item.category}</p>
+                            <h3 class="text-xl font-semibold text-fg">${item.title}</h3>
+                            <p class="mt-3 text-fg-soft text-sm leading-6">${item.description}</p>
+                            <span class="mt-auto pt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">Visit live site
+                                <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span></span>
+                        </div>
                     </div>
                 </a>
             `;
@@ -163,5 +169,5 @@ const portfolioItems = [
 
     const showcase = document.querySelector('[data-hero-showcase]');
     addTilt(showcase, showcase && showcase.querySelector('.hero-tilt'), 10, 18);
-    document.querySelectorAll('.site-card').forEach(card => addTilt(card, card.querySelector('.site-frame'), 20, 30));
+    document.querySelectorAll('.site-card').forEach(card => addTilt(card, card.querySelector('.site-tilt'), 20, 30));
 })();
