@@ -112,6 +112,13 @@ const portfolioItems = [
         title: 'The Thoughtful Basket | Lovely Gifts',
         category: 'Celebrations',
         description: 'Thoughtful gift baskets, mugs, candles, soaps, coffee, tea, and sweet little treats.'
+    },
+    {
+        href: 'https://farwell1.webbites.dev',
+        slug: 'farwell1',
+        title: 'C.L. Farwell Construction, LLC | Brookline, NH',
+        category: 'Construction',
+        description: 'C.L. Farwell Construction, LLC. Septic tanks and systems in Brookline, New Hampshire. Call 603-673-4786.'
     }
 ];
 
