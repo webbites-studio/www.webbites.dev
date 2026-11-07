@@ -133,6 +133,13 @@ const portfolioItems = [
         title: 'Ana Sholin — Find Your Inner Strength',
         category: 'Coaching',
         description: 'Find your inner strength with Ana Sholin. Explore resilience speaking, coaching sessions, journals and resources from the founder of Tomorrow Heals.'
+    },
+    {
+        href: 'https://change-space1.webbites.dev',
+        slug: 'change-space1',
+        title: 'Оксана Красуля — Пространство перемен',
+        category: 'Coaching',
+        description: 'Оксана Красуля. Личное пространство для осознанных перемен: жизненные сценарии, отношения и самореализация.'
     }
 ];
 
