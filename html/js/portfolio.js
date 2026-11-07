@@ -105,6 +105,13 @@ const portfolioItems = [
         title: 'Integra 42 | Management Consulting',
         category: 'Business',
         description: 'Management consulting services for businesses seeking strategic guidance and operational excellence.'
+    },
+    {
+        href: 'https://maura-gifts1.webbites.dev',
+        slug: 'maura-gifts1',
+        title: 'The Thoughtful Basket | Lovely Gifts',
+        category: 'Celebrations',
+        description: 'Thoughtful gift baskets, mugs, candles, soaps, coffee, tea, and sweet little treats.'
     }
 ];
 
