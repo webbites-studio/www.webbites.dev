@@ -98,6 +98,13 @@ const portfolioItems = [
         title: 'Integra 42 | Strategic Consulting & Systems Integration',
         category: 'Business',
         description: 'Strategic consulting and systems integration services for businesses seeking efficient and effective solutions.'
+    },
+    {
+        href: 'https://integra2.webbites.dev',
+        slug: 'integra2',
+        title: 'Integra 42 | Management Consulting',
+        category: 'Business',
+        description: 'Management consulting services for businesses seeking strategic guidance and operational excellence.'
     }
 ];
 
