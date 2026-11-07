@@ -126,6 +126,13 @@ const portfolioItems = [
         title: 'Custom Cakes & Desserts | @natabostoncakes',
         category: 'Celebrations',
         description: 'Explore custom cakes and desserts and request a design for your celebration. Follow @natabostoncakes on Instagram.'
+    },
+    {
+        href: 'https://anna-sholin1.webbites.dev',
+        slug: 'anna-sholin1',
+        title: 'Ana Sholin — Find Your Inner Strength',
+        category: 'Coaching',
+        description: 'Find your inner strength with Ana Sholin. Explore resilience speaking, coaching sessions, journals and resources from the founder of Tomorrow Heals.'
     }
 ];
 
