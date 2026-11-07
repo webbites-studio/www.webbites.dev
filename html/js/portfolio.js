@@ -63,6 +63,13 @@ const portfolioItems = [
         title: 'Luxury event planning service',
         category: 'Event Planning',
         description: 'A high-end site showcasing event planning services, featuring a project portfolio, client testimonials, and a contact form for inquiries.'
+    },
+    {
+        href: 'https://luis-builder1.webbites.dev',
+        slug: 'luis-builder1',
+        title: 'Stonebridge Builders | Tree & Landscape',
+        category: 'Landscaping',
+        description: 'Stonebridge Builders - precise tree care and landscape construction.'
     }
 ];
 
