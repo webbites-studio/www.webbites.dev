@@ -84,6 +84,13 @@ const portfolioItems = [
         title: 'Lara Nikolau — Photographer',
         category: 'Photography',
         description: 'Lara Nikolau is an editorial photographer specializing in portraits, weddings, fashion, and travel — working between Paris and the world.'
+    },
+    {
+        href: 'https://lara-photo2.webbites.dev',
+        slug: 'lara-photo2',
+        title: 'Lara Nikolau — Photographer',
+        category: 'Photography',
+        description: 'Lara Nikolau is a Boston photographer specializing in family, couples, maternity, wedding, and editorial portraiture — capturing genuine emotion with a quiet, cinematic eye.'
     }
 ];
 
