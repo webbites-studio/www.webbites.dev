@@ -70,6 +70,20 @@ const portfolioItems = [
         title: 'Stonebridge Builders | Tree & Landscape',
         category: 'Landscaping',
         description: 'Stonebridge Builders - precise tree care and landscape construction.'
+    },
+    {
+        href: 'https://www.northstarbuilders.us',
+        slug: 'northstarbuilders',
+        title: 'North Star Builders | Tree & Landscape',
+        category: 'Landscaping',
+        description: 'North Star Builders - precise tree care and landscape construction.'
+    },
+    {
+        href: 'https://lara-photo1.webbites.dev',
+        slug: 'lara-photo1',
+        title: 'Lara Nikolau — Photographer',
+        category: 'Photography',
+        description: 'Lara Nikolau is an editorial photographer specializing in portraits, weddings, fashion, and travel — working between Paris and the world.'
     }
 ];
 
