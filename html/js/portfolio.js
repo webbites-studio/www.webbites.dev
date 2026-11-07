@@ -119,6 +119,13 @@ const portfolioItems = [
         title: 'C.L. Farwell Construction, LLC | Brookline, NH',
         category: 'Construction',
         description: 'C.L. Farwell Construction, LLC. Septic tanks and systems in Brookline, New Hampshire. Call 603-673-4786.'
+    },
+    {
+        href: 'https://barbashov-cake1.webbites.dev',
+        slug: 'barbashov-cake1',
+        title: 'Custom Cakes & Desserts | @natabostoncakes',
+        category: 'Celebrations',
+        description: 'Explore custom cakes and desserts and request a design for your celebration. Follow @natabostoncakes on Instagram.'
     }
 ];
 
