@@ -91,6 +91,13 @@ const portfolioItems = [
         title: 'Lara Nikolau — Photographer',
         category: 'Photography',
         description: 'Lara Nikolau is a Boston photographer specializing in family, couples, maternity, wedding, and editorial portraiture — capturing genuine emotion with a quiet, cinematic eye.'
+    },
+    {
+        href: 'https://integra1.webbites.dev',
+        slug: 'integra1',
+        title: 'Integra 42 | Strategic Consulting & Systems Integration',
+        category: 'Business',
+        description: 'Strategic consulting and systems integration services for businesses seeking efficient and effective solutions.'
     }
 ];
 
