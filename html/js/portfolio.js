@@ -145,7 +145,7 @@ const portfolioItems = [
         href: 'https://lueur1.webbites.dev',
         slug: 'lueur1',
         title: 'LUEUR — Candles, Perfume & Creative Workshops',
-        category: 'Web Design',
+        category: 'Arts & Crafts',
         description: 'Candle-making and perfume workshops, plus private event bookings. Next workshop: November 22 in Merrimack, NH. All materials and snacks included.'
     }
 ];
