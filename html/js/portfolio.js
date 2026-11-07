@@ -140,6 +140,13 @@ const portfolioItems = [
         title: 'Оксана Красуля — Пространство перемен',
         category: 'Coaching',
         description: 'Оксана Красуля. Личное пространство для осознанных перемен: жизненные сценарии, отношения и самореализация.'
+    },
+    {
+        href: 'https://lueur1.webbites.dev',
+        slug: 'lueur1',
+        title: 'LUEUR — Candles, Perfume & Creative Workshops',
+        category: 'Web Design',
+        description: 'Candle-making and perfume workshops, plus private event bookings. Next workshop: November 22 in Merrimack, NH. All materials and snacks included.'
     }
 ];
 
