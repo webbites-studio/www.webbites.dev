@@ -63,6 +63,90 @@ const portfolioItems = [
         title: 'Luxury event planning service',
         category: 'Event Planning',
         description: 'A high-end site showcasing event planning services, featuring a project portfolio, client testimonials, and a contact form for inquiries.'
+    },
+    {
+        href: 'https://luis-builder1.webbites.dev',
+        slug: 'luis-builder1',
+        title: 'Stonebridge Builders | Tree & Landscape',
+        category: 'Landscaping',
+        description: 'Stonebridge Builders - precise tree care and landscape construction.'
+    },
+    {
+        href: 'https://www.northstarbuilders.us',
+        slug: 'northstarbuilders',
+        title: 'North Star Builders | Tree & Landscape',
+        category: 'Landscaping',
+        description: 'North Star Builders - precise tree care and landscape construction.'
+    },
+    {
+        href: 'https://lara-photo1.webbites.dev',
+        slug: 'lara-photo1',
+        title: 'Lara Nikolau — Photographer',
+        category: 'Photography',
+        description: 'Lara Nikolau is an editorial photographer specializing in portraits, weddings, fashion, and travel — working between Paris and the world.'
+    },
+    {
+        href: 'https://lara-photo2.webbites.dev',
+        slug: 'lara-photo2',
+        title: 'Lara Nikolau — Photographer',
+        category: 'Photography',
+        description: 'Lara Nikolau is a Boston photographer specializing in family, couples, maternity, wedding, and editorial portraiture — capturing genuine emotion with a quiet, cinematic eye.'
+    },
+    {
+        href: 'https://integra1.webbites.dev',
+        slug: 'integra1',
+        title: 'Integra 42 | Strategic Consulting & Systems Integration',
+        category: 'Business',
+        description: 'Strategic consulting and systems integration services for businesses seeking efficient and effective solutions.'
+    },
+    {
+        href: 'https://integra2.webbites.dev',
+        slug: 'integra2',
+        title: 'Integra 42 | Management Consulting',
+        category: 'Business',
+        description: 'Management consulting services for businesses seeking strategic guidance and operational excellence.'
+    },
+    {
+        href: 'https://maura-gifts1.webbites.dev',
+        slug: 'maura-gifts1',
+        title: 'The Thoughtful Basket | Lovely Gifts',
+        category: 'Celebrations',
+        description: 'Thoughtful gift baskets, mugs, candles, soaps, coffee, tea, and sweet little treats.'
+    },
+    {
+        href: 'https://farwell1.webbites.dev',
+        slug: 'farwell1',
+        title: 'C.L. Farwell Construction, LLC | Brookline, NH',
+        category: 'Construction',
+        description: 'C.L. Farwell Construction, LLC. Septic tanks and systems in Brookline, New Hampshire. Call 603-673-4786.'
+    },
+    {
+        href: 'https://barbashov-cake1.webbites.dev',
+        slug: 'barbashov-cake1',
+        title: 'Custom Cakes & Desserts | @natabostoncakes',
+        category: 'Celebrations',
+        description: 'Explore custom cakes and desserts and request a design for your celebration. Follow @natabostoncakes on Instagram.'
+    },
+    {
+        href: 'https://anna-sholin1.webbites.dev',
+        slug: 'anna-sholin1',
+        title: 'Ana Sholin — Find Your Inner Strength',
+        category: 'Coaching',
+        description: 'Find your inner strength with Ana Sholin. Explore resilience speaking, coaching sessions, journals and resources from the founder of Tomorrow Heals.'
+    },
+    {
+        href: 'https://change-space1.webbites.dev',
+        slug: 'change-space1',
+        title: 'Оксана Красуля — Пространство перемен',
+        category: 'Coaching',
+        description: 'Оксана Красуля. Личное пространство для осознанных перемен: жизненные сценарии, отношения и самореализация.'
+    },
+    {
+        href: 'https://lueur1.webbites.dev',
+        slug: 'lueur1',
+        title: 'LUEUR — Candles, Perfume & Creative Workshops',
+        category: 'Arts & Crafts',
+        description: 'Candle-making and perfume workshops, plus private event bookings. Next workshop: November 22 in Merrimack, NH. All materials and snacks included.'
     }
 ];
 
